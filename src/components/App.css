@@ -1,0 +1,65 @@
+.token-dropdown-menu {
+  max-height: none;
+}
+
+/*This sets the max height of the scrollable menu */
+.token-scrollable-menu {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+
+/* position: absolute; this property sets position to nearest ancestor.*/
+
+.thought-bubble-container {
+  position: absolute;
+  top: 50%; /* increasing this percentage lowers the image.  its distance from top of container. :*/
+  right: 0; /* this sets thought bubble to be right of the container it's associated with
+  which in our case is the "card-body" it's ancestor, the content.*/
+  transform: translate(100%, -50%);
+}
+
+/* the image and content below are children of the container.*/
+
+.thought-bubble-image {
+  width: 330px;
+  height: 760px;
+}
+
+
+.thought-bubble-content {
+  position: absolute;
+  top: 38%; /* changes height of where the text content will start.*/
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+
+  font-weight: bold;
+  text-align: center;
+  color: black;
+   width: 190px; /* Adjust the width as desired */
+}
+
+
+.gold-text {
+  color: darkgoldenrod;
+}
+
+.oracle-data {
+  font-size: 26px;
+}
+
+.outlined {
+  border: .25px solid black;
+  outline: .25px solid black;
+}
+
+.content-container {
+  border: 2px solid black;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+
+
+
