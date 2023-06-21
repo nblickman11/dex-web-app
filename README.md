@@ -12,5 +12,5 @@
 5. The smart contracts are already compiled, but you can still run "truffle compile".
 6. Run "truffle migrate" to deploy the smart contracts to the simulated Ganache Blockchain.
 7. Run "npm run start" to launch the React Application.
-
+8. (If you'd like to run the test cases, go back to the terminal and run "truffle test".)
 
