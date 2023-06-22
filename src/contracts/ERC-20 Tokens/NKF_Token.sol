@@ -1,14 +1,14 @@
 pragma solidity ^0.5.0;
 
-import './Token_Interface.sol';
+import '../Token_Interface.sol';
 
-contract NRM_Token is TokenInterface {
-    string  public name = "Nelson Mandela";
-    string  public birthPlace = "Mvezo, South Africa";
-    string  public symbol = "NRM";
+contract NKF_Token is TokenInterface {
+    string  public name = "Nelly Furtado";
+    string  public birthPlace = "Victoria, Canada";
+    string  public symbol = "NKF";
     uint256 public totalSupply = 1000000000000000000000000;
     uint8 public decimals = 18;
-    uint public rate = 3;
+    uint public rate = 15;
 
 
     event Transfer(
@@ -44,7 +44,6 @@ contract NRM_Token is TokenInterface {
     function getSymbol() public view returns (string memory) {
         return symbol;
     }
-
 
 
     function transfer(address _to, uint256 _value) public returns (bool success) {

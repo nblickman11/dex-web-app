@@ -1,14 +1,14 @@
 pragma solidity ^0.5.0;
 
-import './Token_Interface.sol';
+import '../Token_Interface.sol';
 
-contract EHN_Token is TokenInterface {
-    string public name = "Eric (Ricky) Nelson";
-    string public birthPlace = "Teaneck, NJ";
-    string  public symbol = "EHN";
+contract JN_Token is TokenInterface {
+    string  public name = "Jameer Nelson";
+    string  public birthPlace = "Chester, PA";
+    string  public symbol = "JN";
     uint256 public totalSupply = 1000000000000000000000000;
     uint8 public decimals = 18;
-    uint public rate = 77;
+    uint public rate = 22;
 
 
     event Transfer(
@@ -29,8 +29,6 @@ contract EHN_Token is TokenInterface {
     constructor() public {
         balanceOf[msg.sender] = totalSupply;
     }
-
-
 
     function getName() public view returns (string memory) {
         return name;

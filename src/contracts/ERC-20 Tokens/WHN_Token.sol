@@ -1,14 +1,14 @@
 pragma solidity ^0.5.0;
 
-import './Token_Interface.sol';
+import '../Token_Interface.sol';
 
-contract NCN_Token is TokenInterface {
-    string  public name = "Novella Nelson";
-    string  public birthPlace = "Brooklyn, NY";
-    string  public symbol = "NCN";
+contract WHN_Token is TokenInterface {
+    string  public name = "Willie Nelson";
+    string  public birthPlace = "Abbott, TX";
+    string  public symbol = "WHN";
     uint256 public totalSupply = 1000000000000000000000000;
     uint8 public decimals = 18;
-    uint public rate = 71;
+    uint public rate = 21;
 
 
     event Transfer(

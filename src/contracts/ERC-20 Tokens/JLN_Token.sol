@@ -1,14 +1,14 @@
 pragma solidity ^0.5.0;
 
-import './Token_Interface.sol';
+import '../Token_Interface.sol';
 
-contract WHN_Token is TokenInterface {
-    string  public name = "Willie Nelson";
-    string  public birthPlace = "Abbott, TX";
-    string  public symbol = "WHN";
+contract JLN_Token is TokenInterface {
+    string  public name = "Jesy Nelson";
+    string  public birthPlace = "Romford, United Kingdom";
+    string  public symbol = "JLN";
     uint256 public totalSupply = 1000000000000000000000000;
     uint8 public decimals = 18;
-    uint public rate = 21;
+    uint public rate = 88;
 
 
     event Transfer(
@@ -30,12 +30,14 @@ contract WHN_Token is TokenInterface {
         balanceOf[msg.sender] = totalSupply;
     }
 
+
     function getName() public view returns (string memory) {
         return name;
     }
     function getBirthPlace() public view returns (string memory) {
         return birthPlace;
     }
+
 
     function getRate() public view returns (uint) {
         return rate;

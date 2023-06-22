@@ -1,19 +1,21 @@
 pragma solidity ^0.5.0;
 
 import './Token_Interface.sol';
-import './Token.sol';
-import './NRM_Token.sol';
-import './NAR_Token.sol';
-import './ADN_Token.sol';
-import './WHN_Token.sol';
-import './NKF_Token.sol';
-import './CIH_Token.sol';
-import './NSR_Token.sol';
-import './JN_Token.sol';
-import './NCN_Token.sol';
-import './EHN_Token.sol';
-import './JRN_Token.sol';
-import './JLN_Token.sol';
+
+
+import './ERC-20 Tokens/Token.sol';
+import './ERC-20 Tokens/NRM_Token.sol';
+import './ERC-20 Tokens/NAR_Token.sol';
+import './ERC-20 Tokens/ADN_Token.sol';
+import './ERC-20 Tokens/WHN_Token.sol';
+import './ERC-20 Tokens/NKF_Token.sol';
+import './ERC-20 Tokens/CIH_Token.sol';
+import './ERC-20 Tokens/NSR_Token.sol';
+import './ERC-20 Tokens/JN_Token.sol';
+import './ERC-20 Tokens/NCN_Token.sol';
+import './ERC-20 Tokens/EHN_Token.sol';
+import './ERC-20 Tokens/JRN_Token.sol';
+import './ERC-20 Tokens/JLN_Token.sol';
 
 contract EthSwap {
 

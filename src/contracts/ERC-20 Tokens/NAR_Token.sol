@@ -1,15 +1,14 @@
 pragma solidity ^0.5.0;
 
-import './Token_Interface.sol';
+import '../Token_Interface.sol';
 
-contract ADN_Token is TokenInterface {
-    string  public name = "Alice Nelson";
-    string  public birthPlace = "New Orleans, LA";
-    
-    string  public symbol = "ADN";
+contract NAR_Token is TokenInterface {
+    string  public name = "Nelson Rockefeller";
+    string  public birthPlace = "Bar Harbor, ME";
+    string  public symbol = "NAR";
     uint256 public totalSupply = 1000000000000000000000000;
     uint8 public decimals = 18;
-    uint public rate = 7;
+    uint public rate = 11;
 
 
     event Transfer(

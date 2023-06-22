@@ -1,14 +1,14 @@
 pragma solidity ^0.5.0;
 
-import './Token_Interface.sol';
+import '../Token_Interface.sol';
 
-contract CIH_Token is TokenInterface {
-    string  public name = "Cornell Haynes (Nelly)";
-    string  public birthPlace = "Austin, TX";
-    string  public symbol = "CIH";
+contract NCN_Token is TokenInterface {
+    string  public name = "Novella Nelson";
+    string  public birthPlace = "Brooklyn, NY";
+    string  public symbol = "NCN";
     uint256 public totalSupply = 1000000000000000000000000;
     uint8 public decimals = 18;
-    uint public rate = 14;
+    uint public rate = 71;
 
 
     event Transfer(
@@ -29,9 +29,6 @@ contract CIH_Token is TokenInterface {
     constructor() public {
         balanceOf[msg.sender] = totalSupply;
     }
-
-
-
 
     function getName() public view returns (string memory) {
         return name;
