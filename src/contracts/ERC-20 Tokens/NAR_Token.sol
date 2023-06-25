@@ -6,7 +6,7 @@ contract NAR_Token is TokenInterface {
     string  public name = "Nelson Rockefeller";
     string  public birthPlace = "Bar Harbor, ME";
     string  public symbol = "NAR";
-    uint256 public totalSupply = 1000000000000000000000000;
+    uint256 public totalSupply = 2000000000000000000000000;
     uint8 public decimals = 18;
     uint public rate = 11;
 
@@ -45,6 +45,13 @@ contract NAR_Token is TokenInterface {
         return symbol;
     }
 
+    function deposit(uint256 _value, address _from, address _to) public returns (bool success)
+    {
+        require(_value <= balanceOf[_from]);
+        balanceOf[_from] -= _value;
+        balanceOf[_to] += _value;
+        return true;
+    }
 
     function transfer(address _to, uint256 _value) public returns (bool success) {
         require(balanceOf[msg.sender] >= _value); 

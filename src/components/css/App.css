@@ -60,6 +60,41 @@
   margin-bottom: 20px;
 }
 
+.block-logo {
+  width: 600px; /* Adjust the width as desired */
+  height: 600px; /* Automatically adjust the height based on the width */
+  margin-top: 40px; /* Adjust the top margin to move the logo down */
+  margin-bottom: 10px; /* Adjust the bottom margin if needed */
+  margin-left: -100px; /* Adjust the left margin to move the logo further to the left */
+}
 
 
+.block-text {
+  position: absolute;
+  top: 25%;
+  left: -10%;
+  transform: translate(50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  width: 300px;
+}
+
+.flash-loan-link {
+  color: black;
+  text-decoration: none;
+}
+
+.flash-loan-link:hover {
+  text-decoration: underline;
+}
+
+
+.more-features {
+  color: darkgoldenrod;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: underline;
+  vertical-align: middle;
+}
 

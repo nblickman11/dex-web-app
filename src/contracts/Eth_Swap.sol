@@ -1,8 +1,6 @@
 pragma solidity ^0.5.0;
 
 import './Token_Interface.sol';
-
-
 import './ERC-20 Tokens/Token.sol';
 import './ERC-20 Tokens/NRM_Token.sol';
 import './ERC-20 Tokens/NAR_Token.sol';
@@ -41,6 +39,9 @@ contract EthSwap {
 		uint rate
 	);
 
+	// passing entire mappings in solidity are not easy.  They don't
+	// provide direct access to their stored keys/values like arrays.
+	// Not iterable go retrieve them all either.
 	mapping(string => TokenInterface) public symbolToInstanceMapping;
 
 	constructor(address[] memory _tokens) public {
@@ -54,6 +55,13 @@ contract EthSwap {
         }
 	}
 
+	// Getter function to retrieve the token instance for a given symbol
+    function getTokenInstance(string calldata symbol) external view returns (TokenInterface) {
+        return symbolToInstanceMapping[symbol];
+     }
+
+	// NOTE: consider calldata, not memory.  since currentToken is read only, and 
+	// .. would save gas by not having to make a copy the parameter
 	function buyTokens(string memory currentToken) public payable {
 
 		// Create our token instance to be of the same contract the currentToken specifies

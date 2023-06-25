@@ -2,7 +2,7 @@
 const Web3 = require('web3');
 const contractArtifact = require('../abis/EthSwap.json');
 const contractArtifact2 = require('../abis/OracleClient.json');
-
+const artifactFlashLoan = require('../abis/FlashLoan.json');
 
 // Check if MetaMask is available
 if (window.ethereum) {
@@ -13,6 +13,8 @@ if (window.ethereum) {
   window.ethereum.enable().catch((error) => {
     console.error('Error enabling accounts', error);
   });
+
+
 
   // Retrieve the contract address from the artifact file
   const contractAddress = contractArtifact.networks['5777'].address;
@@ -28,7 +30,6 @@ if (window.ethereum) {
     console.log('LogMessage:', message);
   });
   logMessageEvent.on('error', console.error);
-
 
 
 
@@ -55,5 +56,26 @@ if (window.ethereum) {
     console.log('ClientTest:', message3);
   });
   clientTestEvent.on('error', console.error);
+
+
+
+
+
+
+  // Retrieve the contract address from the artifact file
+  const addressFlashLoan = artifactFlashLoan.networks['5777'].address;
+
+  // Create a contract instance
+  const flashLoanABI = artifactFlashLoan.abi;
+  const flashLoan = new web3.eth.Contract(flashLoanABI, addressFlashLoan);
+
+  //Listen to the request volume event
+  const eventFlashLoan = flashLoan.events.eventPostFlashLoan();
+  eventFlashLoan.on('data', (event) => {
+    // can remove .volume if just want the whole object
+    const values = event.returnValues;
+    console.log('eventFlashLoan:', values);
+  });
+  eventFlashLoan.on('error', console.error);
 
 }

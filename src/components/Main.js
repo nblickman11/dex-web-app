@@ -3,10 +3,10 @@ import React, {Component} from 'react';
 // Import code from below files.
 import BuyForm from './BuyForm';
 import SellForm from './SellForm';
-import needNelsonToken from '../needNelson.jpg';
+import needNelsonToken from '../Images/needNelson.jpg';
 import PropTypes from 'prop-types';
 
-import thoughtBubbleIcon from '../thought-bubble.png';
+import thoughtBubbleIcon from '../Images/thought-bubble.png';
 
 
 class Main extends Component {
@@ -35,7 +35,7 @@ class Main extends Component {
     if (this.state.currentForm === 'buy') {
       content = (
         <BuyForm
-          handleTokensPurchase={this.props.handleTokensPurchase}
+          reloadBCData={this.props.reloadBCData}
           updateBuyFormVariable={this.updateBuyFormVariable}
           tokenBalanceMapping={this.props.tokenBalanceMapping}
           symbolRateMapping={this.props.symbolRateMapping}
@@ -49,7 +49,7 @@ class Main extends Component {
     } else {
       content = (
         <SellForm
-          handleTokensPurchase={this.props.handleTokensPurchase}
+          reloadBCData={this.props.reloadBCData}
           updateSellFormVariable={this.updateSellFormVariable}
           tokenBalanceMapping={this.props.tokenBalanceMapping}
           symbolRateMapping={this.props.symbolRateMapping}

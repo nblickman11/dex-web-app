@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import ethLogo from '../eth-logo.png';
+import ethLogo from '../Images/eth-logo.png';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
 //Logos
-import generalTokenLogo from '../General_logo.jpg';
+import generalTokenLogo from '../Images/General_logo.jpg';
 import ntbLogo from '../nelsonImages/NTB_logo.jpg';
 import nrmLogo from '../nelsonImages/NRM_logo.jpg';
 import narLogo from '../nelsonImages/NAR_logo.jpg';
@@ -74,7 +74,7 @@ class BuyForm extends Component {
             let etherAmount = this.input.value.toString();
             etherAmount = window.web3.utils.toWei(etherAmount, 'Ether');
             this.props.buyTokens(etherAmount, this.state.currentToken);
-            this.props.handleTokensPurchase();
+            this.props.reloadBCData();
           }
         }}
       >
@@ -132,11 +132,10 @@ class BuyForm extends Component {
           <label className="float-left">
             <b>Output</b>
           </label>
-          <span style={{ fontWeight: 'bold' }} className="float-right text-muted">
-            Your Balance: {window.web3.utils.fromWei(this.props.tokenBalanceMapping[
-              this.state.currentToken].toString(),
-                'Ether')} Tokens
-          </span>
+            <span style={{ fontWeight: 'bold' }} className="float-right text-muted">
+              Your Balance: {parseFloat(window.web3.utils.fromWei(this.props.tokenBalanceMapping[this.state.currentToken].toString(), 'Ether')).toFixed(2)} Tokens
+            </span>
+
         </div>
 
         <div className="input-group mb-2">
@@ -148,6 +147,8 @@ class BuyForm extends Component {
             value={this.state.output}
             disabled
           />
+
+          
 
           <div className="input-group-append">
             

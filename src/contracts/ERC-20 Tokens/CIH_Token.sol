@@ -6,7 +6,7 @@ contract CIH_Token is TokenInterface {
     string  public name = "Cornell Haynes (Nelly)";
     string  public birthPlace = "Austin, TX";
     string  public symbol = "CIH";
-    uint256 public totalSupply = 1000000000000000000000000;
+    uint256 public totalSupply = 2000000000000000000000000;
     uint8 public decimals = 18;
     uint public rate = 14;
 
@@ -30,9 +30,6 @@ contract CIH_Token is TokenInterface {
         balanceOf[msg.sender] = totalSupply;
     }
 
-
-
-
     function getName() public view returns (string memory) {
         return name;
     }
@@ -48,7 +45,14 @@ contract CIH_Token is TokenInterface {
         return symbol;
     }
 
-
+    function deposit(uint256 _value, address _from, address _to) public returns (bool success)
+    {
+        require(_value <= balanceOf[_from]);
+        balanceOf[_from] -= _value;
+        balanceOf[_to] += _value;
+        return true;
+    }
+    
     function transfer(address _to, uint256 _value) public returns (bool success) {
         require(balanceOf[msg.sender] >= _value); 
         balanceOf[msg.sender] -= _value;

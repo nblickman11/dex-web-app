@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ethLogo from '../eth-logo.png';
+import ethLogo from '../Images/eth-logo.png';
 
 //Logos
-import generalTokenLogo from '../General_logo.jpg';
+import generalTokenLogo from '../Images/General_logo.jpg';
 
 import ntbLogo from '../nelsonImages/NTB_logo.jpg';
 import nrmLogo from '../nelsonImages/NRM_logo.jpg';
@@ -65,16 +65,16 @@ class SellForm extends Component {
             tokenAmount = this.input.value.toString();
             tokenAmount = window.web3.utils.toWei(tokenAmount, 'Ether');
             await this.props.sellTokens(tokenAmount, this.state.currentToken);
-            this.props.handleTokensPurchase();
+            this.props.reloadBCData();
           }
         }}
       >
         <div>
           <label className="float-left"><b>Input</b></label>
-          <span style={{ fontWeight: 'bold' }} className="float-right text-muted">
-            Your Balance: {window.web3.utils.fromWei(this.props.tokenBalanceMapping[
-              this.state.currentToken].toString())} Tokens
-          </span>
+            <span style={{ fontWeight: 'bold' }} className="float-right text-muted">
+              Your Balance: {parseFloat(window.web3.utils.fromWei(this.props.tokenBalanceMapping[this.state.currentToken].toString())).toFixed(2)} Tokens
+            </span>
+
         </div>
 
         <div className="input-group mb-4">

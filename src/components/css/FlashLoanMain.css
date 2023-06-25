@@ -1,0 +1,31 @@
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: -350px;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.flash-logo {
+  width: 150px; /* Adjust the width as desired */
+  height: 200px; /* Automatically adjust the height based on the width */
+  margin-top: 250px; /* Adjust the top margin to move the logo down */
+  margin-left: -350px; /* Adjust the left margin to move the logo further to the left */
+}
+
+
+.flashloan-container {
+  position: absolute;
+  top: 75%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  background-color: 'red';
+  width: 500px; /* Adjust the width as desired */
+  height: 400px; /* Adjust the height as desired */
+}
+
+
+.black-text {
+  color: black !important;
+  font-weight: bold;
+}

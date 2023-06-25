@@ -17,10 +17,13 @@ const EHN_Token = artifacts.require("EHN_Token");
 const JRN_Token = artifacts.require("JRN_Token");
 const JLN_Token = artifacts.require("JLN_Token");
 
-// Oracle-Related Contracts
+// Oracle Related Contracts
 const OracleClient = artifacts.require("OracleClient");
 const OracleContract = artifacts.require("OracleContract");
 const MockLinkToken = artifacts.require("MockLinkToken");
+
+// Flash Loan Related Contracts
+const FlashLoan = artifacts.require("FlashLoan");
 
 
 module.exports = async function(deployer) { 
@@ -40,16 +43,20 @@ module.exports = async function(deployer) {
 
   // Deploy the EthSwap contract artifact and the addresses it talks to.  
   const tokenInstancesSlice = tokenInstances.slice(0, 13);
-  // The .map stores the address in the array
   await deployer.deploy(EthSwap, tokenInstancesSlice.map(token => token.address));
 
   // Deploy Oracle client and the addresses it talks to.
   await deployer.deploy(OracleClient, tokenInstances[13].address, 
     tokenInstances[14].address)
 
-  // Return the ethSwap and oracleClient contract instance
-  const ethSwap = await EthSwap.deployed()
+  // Deploy Flash Loan and the address it talks to.
+  const ethSwap = await EthSwap.deployed() //Grab ethSwap contract inst.
+  await deployer.deploy(FlashLoan, ethSwap.address)
+
+
+  // Return the oracleClient and flashLoan contract instance
   const oracleClient = await OracleClient.deployed()
+  const flashLoan = await FlashLoan.deployed()
 
 
   /* 
@@ -58,11 +65,14 @@ module.exports = async function(deployer) {
 
     - So below we transfer 1 million tokens from the Ganache account to 
       the EthSwap's contract balance, for each of the 13 token contracts
+
+    - And transfer the other 1 (of 2 total) million to the FlashLoan's Contract.
   */ 
   const transferAmount = '1000000000000000000000000';
   for (let i = 0; i <= 12; i++) {
     const tokenInstance = tokenInstances[i];
     await tokenInstance.transfer(ethSwap.address, transferAmount);
+    await tokenInstance.transfer(flashLoan.address, transferAmount);
   }
 
   // Send 1 million of Ganache account's MockLinkTokens to the OracleClient.

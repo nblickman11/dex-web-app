@@ -1,12 +1,18 @@
 // Import the React Library and Component Class from 'react' package.
 import React, {Component} from 'react';
+
 import Web3 from 'web3';
+
+import {Link, Route, Routes, Switch} from 'react-router-dom';
+
 
 // Import code from below files.
 import Navbar from './Navbar';
 import Main from './Main';
+import FlashLoanMain from './FlashLoanMain';
 import EthSwap from '../abis/EthSwap.json';
-import './App.css';
+import FlashLoan from '../abis/FlashLoan.json';
+import './css/App.css';
 
 // Import abi files
 import Token from '../abis/Token.json';
@@ -24,6 +30,9 @@ import JRN_Token from '../abis/JRN_Token.json';
 import JLN_Token from '../abis/JLN_Token.json';
 import OracleClient from '../abis/OracleClient.json';
 
+// Import logo
+import blockLogo from '../Images/Block.jpg';
+
 
 class App extends Component {
 
@@ -40,19 +49,24 @@ class App extends Component {
       symbolBirthPlaceMapping: {},
       symbolInstanceMapping: {},
       ethSwap: {},
+      flashLoan: {},
       ethBalance: '0',
       // loading: we are waiting for data to be fetched. Load completes before render content to the page.
       loading: true,
+      showBlockLogo: true,
     };
   }
 
   render() {
+
+    const { history } = this.props;
+
     let content;
     if (this.state.loading) {
       content = <p id="loader" className="text-center">Loading...</p>;
     } else {
       content = <Main
-        handleTokensPurchase={this.handleTokensPurchase}
+        reloadBCData={this.reloadBCData}
         tokenBalanceMapping={this.state.tokenBalanceMapping}
         symbolRateMapping={this.state.symbolRateMapping}
         symbolTempMapping={this.state.symbolTempMapping}
@@ -63,24 +77,60 @@ class App extends Component {
         sellTokens={this.sellTokens}
       />;
     }
+
+
     // "this.state.account" is passed as prop to Navbar.
     return (
       <div>
         <Navbar account={this.state.account} />
         <div className="container-fluid mt-5">
           <div className="row">
-            <main role="main" className="col-lg-12 ml-auto mr-auto"
+
+            {!this.state.loading && this.state.showBlockLogo && (
+              <div className="col-lg-1">
+                <img src={blockLogo} alt="Block Logo" className="block-logo" />
+                <div className="block-text">
+                  <p className="more-features">More Features</p>
+                  <Link to="/flashloan" className="flash-loan-link" onClick={this.handleFlashLoanClick}>
+                    Provide a Flash Loan
+                  </Link>
+                </div>
+              </div>
+            )}
+
+            <main role="main" className="col-lg-5 ml-auto mr-auto"
               style={{maxWidth: '600px'}}>
               <div className="content mr-auto ml-auto">
-                {content}
+                
+                <Routes>
+                  <Route path="/" element={content} exact />
+                  <Route
+                    path="/flashloan" element={<FlashLoanMain
+                     backToMain={this.backToMain}
+                     tokenBalanceMapping={this.state.tokenBalanceMapping}
+                     executeFlashLoan={this.executeFlashLoan}
+                     reloadBCData={this.reloadBCData}
+                     />}
+                  />
+                </Routes>
+
               </div>
             </main>
+
           </div>
         </div>
       </div>
     );
   }
 
+  // Call back function.
+  backToMain = () => {
+    this.setState({ showBlockLogo: true });
+  }
+
+  handleFlashLoanClick = () => {    
+    this.setState({ showBlockLogo: false });
+  };
 
   /**
    * // React calls componentDidMount() after render() is called
@@ -134,11 +184,14 @@ class App extends Component {
     if (Number(ethBalance) === 0) {
       throw new Error('Your MetaMask wallet has 0 funds. Please add funds to your wallet.');
     }
-
     this.setState({ethBalance: ethBalance});
+
+
 
     // Return Ganache node network ID.
     const networkId = await web3.eth.net.getId();
+
+
 
     // Pull deployment data out of the Exchange's abi
     const ethSwapData = EthSwap.networks[networkId];
@@ -150,6 +203,16 @@ class App extends Component {
       this.setState({ethSwap: ethSwap});
     } else {
       window.alert('EthSwap contract not deployed to detected network.');
+    }
+
+    // Do the same for the flash loan contract.
+    const flashLoanData = FlashLoan.networks[networkId];
+    if (flashLoanData) {
+      const flashLoan = new web3.eth.Contract(
+          FlashLoan.abi, flashLoanData.address);
+      this.setState({flashLoan: flashLoan});
+    } else {
+      window.alert('FlashLoan contract not deployed to detected network.');
     }
 
     const tokenBalanceMapping = {'SELECT': 0};
@@ -257,9 +320,24 @@ class App extends Component {
   }
 
   // A callback function that's triggered on a token exchange to load fresh BC data to update the page.
-  handleTokensPurchase = () => {
+  reloadBCData = () => {
     this.loadBlockchainData();
   }
+
+  executeFlashLoan = (tokenAmount, currentToken) => {
+  this.setState({ loading: true });
+
+  this.state.flashLoan.methods
+    .executeFlashLoan(tokenAmount, currentToken)
+    .send({from: this.state.account})
+    .on('transactionHash', (hash) => {
+      this.setState({ loading: false });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
 
   buyTokens = (etherAmount, currentToken) => {
   this.setState({ loading: true });
@@ -305,6 +383,5 @@ class App extends Component {
 
   };
 }
-
 
 export default App;

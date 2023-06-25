@@ -18,13 +18,21 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+// BrowswerRouter synchronizes the UI with the current URL.  Allows for routing.
+// It listens to changes in your browswer url renders the content needed.
+import {BrowserRouter} from 'react-router-dom';
 
 
 import './components/EventListener.js';
 
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter history={history}> {/* Pass the history object as a prop */}
+    <App />
+  </BrowserRouter>,
+   document.getElementById('root')
+  );
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
