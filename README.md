@@ -2,6 +2,7 @@
 -React-based DApp that interacts with MetaMask wallets.  
 -Buy and sell Ethereum for 13 different ERC-20 tokens ("Nelson tokens") via a user-friendly interface.  
 -Created oracle contracts to simulate a real oracle.  Pulling in, currently fake, weather data.  
+-Includes functionality that allows users to submit a flash loan that earns interest.  
 -Includes Solidity smart contracts for tokens, exchange, and oracle, on the backend.
 
 # STEPS TO LAUNCH APP
