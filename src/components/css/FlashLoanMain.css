@@ -13,6 +13,14 @@
   margin-left: -350px; /* Adjust the left margin to move the logo further to the left */
 }
 
+.flash-himself {
+  width: 350px; /* Adjust the width as desired */
+  height: 600px; /* Automatically adjust the height based on the width */
+  position: absolute;
+  margin-top: -400px; /* Adjust the top margin to align with other logos */
+  margin-left: 400px; /* Adjust the left margin to move the logo to the right */
+}
+
 
 .flashloan-container {
   position: absolute;

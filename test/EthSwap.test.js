@@ -16,6 +16,9 @@ const JLN_Token = artifacts.require("JLN_Token");
 const EthSwap = artifacts.require('EthSwap')
 import EthSwapJSONFile from '../src/abis/EthSwap.json';
 
+// Flash Loan Related Contracts
+const FlashLoan = artifacts.require("FlashLoan");
+
 // JavaScript test framework.
 require('chai')
 	.use(require('chai-as-promised'))
@@ -41,6 +44,7 @@ contract('EthSwap', ([deployer, investor]) => {
   let contract; 
   let token, nrmToken, narToken, adnToken, whnToken, nkfToken, 
   cihToken, nsrToken, jnToken, ncnToken, ehnToken, jrnToken, jlnToken;
+  let flashLoan;
 
   before(async () => {
   	// Use Promise.all to make sure all of the tokens deploy before moving on.
@@ -68,31 +72,37 @@ contract('EthSwap', ([deployer, investor]) => {
     }
 
     try {
-      contract = await EthSwap.new(
-        token.address,
-        nrmToken.address,
-        narToken.address,
-        adnToken.address,
-        whnToken.address,
-        nkfToken.address,
-        cihToken.address,
-        nsrToken.address,
-        jnToken.address,
-        ncnToken.address,
-        ehnToken.address,
-        jrnToken.address,
-        jlnToken.address
-      );
+		  const tokensAddresses = [
+		    token.address,
+		    nrmToken.address,
+		    narToken.address,
+		    adnToken.address,
+		    whnToken.address,
+		    nkfToken.address,
+		    cihToken.address,
+		    nsrToken.address,
+		    jnToken.address,
+		    ncnToken.address,
+		    ehnToken.address,
+		    jrnToken.address,
+		    jlnToken.address
+		  ];
+  		contract = await EthSwap.new(tokensAddresses);
       console.log("\tEthSwap contract deployed successfully!\n");
     } catch (error) {
       console.error("Error deploying EthSwap contract!:", error);
     }
 
+	  	flashLoan = await FlashLoan.new(contract.address);
+
+
 	  /*
       - "deployer" sends it's token supply (it got from Token.sol on initialization)
          to the EthSwap contract's account.
 	  */ 
-		await token.transfer(contract.address, tokens('1000000'));
+			
+			await token.transfer(contract.address, tokens('1000000'));
+			await token.transfer(flashLoan.address, tokens('1000000'));
   });
 
 	
@@ -169,7 +179,6 @@ contract('EthSwap', ([deployer, investor]) => {
 
 		before(async() => {
 			initialDeployerEtherBalance = await web3.eth.getBalance(deployer);
-			console.log("CHECK", initialDeployerEtherBalance);
 			// Ganache account approves the Exchange to spend the money.
 			await token.approve(contract.address, tokens('100'), {from: deployer})
 			

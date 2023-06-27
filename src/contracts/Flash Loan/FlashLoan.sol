@@ -9,6 +9,8 @@ import "../../../node_modules/@openzeppelin/contracts/math/SafeMath.sol";
 contract FlashLoan {
 
 
+    event LogMessageA(string);
+
     event eventPostFlashLoan(TokenInterface, uint256);
 
     EthSwap public ethSwapInstance;
@@ -41,13 +43,11 @@ contract FlashLoan {
         require(balanceAfter <= balanceBefore, "Flash loan not repaid");
     }
 
-    // ADD MODIFER TO END OF THIS LINE
     function executeFlashLoan(uint256 _loanAmount, string memory currentToken) public ensureLoanRepayment() 
     {
 
         // Call exchange. Retrieve the instance of the contract based on symbol
         tokenInstance = ethSwapInstance.getTokenInstance(currentToken);
-
 
         emit eventPostFlashLoan(tokenInstance, 1);
 

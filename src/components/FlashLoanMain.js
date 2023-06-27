@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import flashLogo from '../Images/flashLogo.png';
+import flashHimselfLogo from '../Images/flashHimself.png';
 import './css/FlashLoanMain.css';
 
 //Logos
@@ -179,10 +180,17 @@ class FlashLoanMain extends Component {
 			    </button>
 			  </div>
 			</div>
-
-	   
 	    </div>
+
+      <div className="logos-container">
+        <img src={flashHimselfLogo} alt="Flash" className="flash-himself" />
+      </div>
+
+
       </form>
+
+
+
     	);
 	}
 }

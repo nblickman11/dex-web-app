@@ -46,6 +46,8 @@ contract EthSwap {
 
 	constructor(address[] memory _tokens) public {
 		
+		emit LogMessage("RUNNING EthSwap Constructor");
+
 		tokens = _tokens;
 
         for (uint i = 0; i < tokens.length; i++) {

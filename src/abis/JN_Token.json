@@ -403,7 +403,7 @@
         "id": 1213,
         "nodeType": "ImportDirective",
         "scope": 1467,
-        "sourceUnit": 4001,
+        "sourceUnit": 4553,
         "src": "25:32:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -417,10 +417,10 @@
               "id": 1214,
               "name": "TokenInterface",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4000,
+              "referencedDeclaration": 4552,
               "src": "80:14:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_TokenInterface_$4000",
+                "typeIdentifier": "t_contract$_TokenInterface_$4552",
                 "typeString": "contract TokenInterface"
               }
             },
@@ -430,7 +430,7 @@
           }
         ],
         "contractDependencies": [
-          4000
+          4552
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -438,7 +438,7 @@
         "id": 1466,
         "linearizedBaseContracts": [
           1466,
-          4000
+          4552
         ],
         "name": "JN_Token",
         "nodeType": "ContractDefinition",
@@ -1044,7 +1044,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4015,
+                          "referencedDeclaration": 4567,
                           "src": "736:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1362,7 +1362,7 @@
             "scope": 1466,
             "src": "963:74:5",
             "stateMutability": "view",
-            "superFunction": 3938,
+            "superFunction": 4490,
             "visibility": "public"
           },
           {
@@ -1441,7 +1441,7 @@
             "scope": 1466,
             "src": "1043:87:5",
             "stateMutability": "view",
-            "superFunction": 3943,
+            "superFunction": 4495,
             "visibility": "public"
           },
           {
@@ -1538,10 +1538,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4018,
-                        4019
+                        4570,
+                        4571
                       ],
-                      "referencedDeclaration": 4018,
+                      "referencedDeclaration": 4570,
                       "src": "1245:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1868,7 +1868,7 @@
             "scope": 1466,
             "src": "1140:238:5",
             "stateMutability": "nonpayable",
-            "superFunction": 3954,
+            "superFunction": 4506,
             "visibility": "public"
           },
           {
@@ -1916,7 +1916,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4015,
+                              "referencedDeclaration": 4567,
                               "src": "1489:3:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -1981,10 +1981,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4018,
-                        4019
+                        4570,
+                        4571
                       ],
-                      "referencedDeclaration": 4018,
+                      "referencedDeclaration": 4570,
                       "src": "1471:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2041,7 +2041,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4015,
+                          "referencedDeclaration": 4567,
                           "src": "1532:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2183,7 +2183,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4015,
+                          "referencedDeclaration": 4567,
                           "src": "1611:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2404,7 +2404,7 @@
             "scope": 1466,
             "src": "1384:279:5",
             "stateMutability": "nonpayable",
-            "superFunction": 3963,
+            "superFunction": 4515,
             "visibility": "public"
           },
           {
@@ -2447,7 +2447,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 4015,
+                            "referencedDeclaration": 4567,
                             "src": "1770:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -2541,7 +2541,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4015,
+                          "referencedDeclaration": 4567,
                           "src": "1824:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2762,7 +2762,7 @@
             "scope": 1466,
             "src": "1669:212:5",
             "stateMutability": "nonpayable",
-            "superFunction": 3972,
+            "superFunction": 4524,
             "visibility": "public"
           },
           {
@@ -2859,10 +2859,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4018,
-                        4019
+                        4570,
+                        4571
                       ],
-                      "referencedDeclaration": 4018,
+                      "referencedDeclaration": 4570,
                       "src": "2120:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2968,7 +2968,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4015,
+                              "referencedDeclaration": 4567,
                               "src": "2278:3:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -3018,10 +3018,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4018,
-                        4019
+                        4570,
+                        4571
                       ],
-                      "referencedDeclaration": 4018,
+                      "referencedDeclaration": 4570,
                       "src": "2243:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -3251,7 +3251,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4015,
+                          "referencedDeclaration": 4567,
                           "src": "2522:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -3552,7 +3552,7 @@
             "scope": 1466,
             "src": "1942:672:5",
             "stateMutability": "nonpayable",
-            "superFunction": 3983,
+            "superFunction": 4535,
             "visibility": "public"
           }
         ],
@@ -3587,7 +3587,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 4001,
+          "SourceUnit": 4553,
           "absolutePath": "project:/src/contracts/Token_Interface.sol",
           "file": "../Token_Interface.sol",
           "scope": 1467,
@@ -3603,14 +3603,14 @@
       {
         "attributes": {
           "contractDependencies": [
-            4000
+            4552
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
             1466,
-            4000
+            4552
           ],
           "name": "JN_Token",
           "scope": 1467
@@ -3625,7 +3625,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "TokenInterface",
-                  "referencedDeclaration": 4000,
+                  "referencedDeclaration": 4552,
                   "type": "contract TokenInterface"
                 },
                 "id": 1214,
@@ -4297,7 +4297,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4015,
+                                      "referencedDeclaration": 4567,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -4553,7 +4553,7 @@
               "name": "getRate",
               "scope": 1466,
               "stateMutability": "view",
-              "superFunction": 3938,
+              "superFunction": 4490,
               "visibility": "public"
             },
             "children": [
@@ -4649,7 +4649,7 @@
               "name": "getSymbol",
               "scope": 1466,
               "stateMutability": "view",
-              "superFunction": 3943,
+              "superFunction": 4495,
               "visibility": "public"
             },
             "children": [
@@ -4745,7 +4745,7 @@
               "name": "deposit",
               "scope": 1466,
               "stateMutability": "nonpayable",
-              "superFunction": 3954,
+              "superFunction": 4506,
               "visibility": "public"
             },
             "children": [
@@ -4897,10 +4897,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                4018,
-                                4019
+                                4570,
+                                4571
                               ],
-                              "referencedDeclaration": 4018,
+                              "referencedDeclaration": 4570,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -5204,7 +5204,7 @@
               "name": "transfer",
               "scope": 1466,
               "stateMutability": "nonpayable",
-              "superFunction": 3963,
+              "superFunction": 4515,
               "visibility": "public"
             },
             "children": [
@@ -5329,10 +5329,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                4018,
-                                4019
+                                4570,
+                                4571
                               ],
-                              "referencedDeclaration": 4018,
+                              "referencedDeclaration": 4570,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -5397,7 +5397,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4015,
+                                          "referencedDeclaration": 4567,
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -5499,7 +5499,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4015,
+                                      "referencedDeclaration": 4567,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -5683,7 +5683,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4015,
+                                  "referencedDeclaration": 4567,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -5783,7 +5783,7 @@
               "name": "approve",
               "scope": 1466,
               "stateMutability": "nonpayable",
-              "superFunction": 3972,
+              "superFunction": 4524,
               "visibility": "public"
             },
             "children": [
@@ -5947,7 +5947,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4015,
+                                          "referencedDeclaration": 4567,
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -6070,7 +6070,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4015,
+                                  "referencedDeclaration": 4567,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -6170,7 +6170,7 @@
               "name": "transferFrom",
               "scope": 1466,
               "stateMutability": "nonpayable",
-              "superFunction": 3983,
+              "superFunction": 4535,
               "visibility": "public"
             },
             "children": [
@@ -6322,10 +6322,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                4018,
-                                4019
+                                4570,
+                                4571
                               ],
-                              "referencedDeclaration": 4018,
+                              "referencedDeclaration": 4570,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -6446,10 +6446,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                4018,
-                                4019
+                                4570,
+                                4571
                               ],
-                              "referencedDeclaration": 4018,
+                              "referencedDeclaration": 4570,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -6557,7 +6557,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 4015,
+                                          "referencedDeclaration": 4567,
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -6834,7 +6834,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4015,
+                                      "referencedDeclaration": 4567,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -7078,12 +7078,12 @@
         }
       },
       "links": {},
-      "address": "0x8e562503601a78107335F0AD3EDcE85952733611",
-      "transactionHash": "0xeb2d104167478936eb34a73f037e55263962b78636b181cb86cecb823180cca2"
+      "address": "0xF1e452FB78122bd3acd01eebB841EDf7A3A6D733",
+      "transactionHash": "0xd340304fe0f69bd77839235ad65c89d9d13781c7ee5259fdea0d7f617fd3577a"
     }
   },
   "schemaVersion": "3.4.14",
-  "updatedAt": "2023-06-25T01:25:29.628Z",
+  "updatedAt": "2023-06-27T21:35:20.546Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

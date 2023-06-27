@@ -152,9 +152,10 @@ class App extends Component {
       // window.ethereum will only run if metamask is detected.
       if (window.ethereum) {
         window.web3 = new Web3(window.ethereum);
+        console.log("HMM")
+
         // Line below window.web3 is deprecated and not used.
       } else if (window.web3) {
-        console.log("HMM2")
         window.web3 = new Web3(window.web3.currentProvider);
       } else {
         window.alert(
@@ -171,6 +172,7 @@ class App extends Component {
     // Store our provider into a single variable.
     const web3 = window.web3;
     
+
     // Return the MetaMask accounts
     const accounts = await web3.eth.getAccounts();
 
@@ -178,7 +180,7 @@ class App extends Component {
       throw new Error('No accounts found. Please connect to MetaMask and refresh the page.');
     }
     this.setState({account: accounts[0]});
-    
+
     // Return balance of user account
     const ethBalance = await web3.eth.getBalance(this.state.account);
     if (Number(ethBalance) === 0) {
@@ -186,11 +188,8 @@ class App extends Component {
     }
     this.setState({ethBalance: ethBalance});
 
-
-
     // Return Ganache node network ID.
     const networkId = await web3.eth.net.getId();
-
 
 
     // Pull deployment data out of the Exchange's abi
