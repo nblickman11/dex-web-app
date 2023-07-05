@@ -1,0 +1,952 @@
+{
+  "contractName": "BaseTokenContract",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "flashLoanAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_flashLoanAddress",
+          "type": "address"
+        }
+      ],
+      "name": "setFlashLoanAddress",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[],\"name\":\"flashLoanAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_flashLoanAddress\",\"type\":\"address\"}],\"name\":\"setFlashLoanAddress\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/Parent Contracts/BaseTokenContract.sol\":\"BaseTokenContract\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/Parent Contracts/BaseTokenContract.sol\":{\"keccak256\":\"0xe2b7de2e2db216393d8d5d344d655f6ae1f5d7151c748131e23ff80bb2ce6e9e\",\"urls\":[\"bzz-raw://c8e8476a64703d636a96d67f03471597d16149811a2ee1cb0f672969e5432eac\",\"dweb:/ipfs/QmRqM85ubYk8EdequnBWScbWi9YJsynjNKH6ZnwpkQ8GBJ\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610166806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80634169467d1461003b578063a4e0928a14610085575b600080fd5b6100436100c9565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100c76004803603602081101561009b57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506100ee565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505056fea265627a7a72315820a6547b9dd68f992c8c26b661250b49dd030c1276da5304edf7c52a07e9a75b3064736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80634169467d1461003b578063a4e0928a14610085575b600080fd5b6100436100c9565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100c76004803603602081101561009b57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506100ee565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505056fea265627a7a72315820a6547b9dd68f992c8c26b661250b49dd030c1276da5304edf7c52a07e9a75b3064736f6c63430005100032",
+  "sourceMap": "175:567:17:-;;;278:28;8:9:-1;5:2;;;30:1;27;20:12;5:2;278:28:17;175:567;;;;;;",
+  "deployedSourceMap": "175:567:17:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;175:567:17;;;;;;;;;;;;;;;;;;;;;;;;240:31;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;413:121;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;413:121:17;;;;;;;;;;;;;;;;;;;:::i;:::-;;240:31;;;;;;;;;;;;;:::o;413:121::-;510:17;491:16;;:36;;;;;;;;;;;;;;;;;;413:121;:::o",
+  "source": "pragma solidity ^0.5.0;\n\n/* \n    There is a lot of similarity. Can probably put transfer(),\n    approve(), transferFrom() implementations into here and just \n    inherit.\n*/\n\ncontract BaseTokenContract {\n    \n    // Child inherits this\n    address public flashLoanAddress;\n\n    constructor() public {\n    }\n\n    // IS INHERITED BY child, so each child has its own variable\n    // of this that is getting set.\n    function setFlashLoanAddress(address _flashLoanAddress) public \n    {\n        flashLoanAddress = _flashLoanAddress;\n    }\n\n    modifier onlyFlashLoanContract(address originalSender, address flashLoan) {\n        require(originalSender == flashLoan, \"Function can only be called by the FlashLoan contract\");\n        _;\n    }\n    \n}\n",
+  "sourcePath": "/Users/Nelson/Desktop/DEX-web-app/src/contracts/Parent Contracts/BaseTokenContract.sol",
+  "ast": {
+    "absolutePath": "project:/src/contracts/Parent Contracts/BaseTokenContract.sol",
+    "exportedSymbols": {
+      "BaseTokenContract": [
+        4050
+      ]
+    },
+    "id": 4051,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4018,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:17"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 4050,
+        "linearizedBaseContracts": [
+          4050
+        ],
+        "name": "BaseTokenContract",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 4020,
+            "name": "flashLoanAddress",
+            "nodeType": "VariableDeclaration",
+            "scope": 4050,
+            "src": "240:31:17",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 4019,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "240:7:17",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 4023,
+              "nodeType": "Block",
+              "src": "299:7:17",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 4024,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4021,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "289:2:17"
+            },
+            "returnParameters": {
+              "id": 4022,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "299:0:17"
+            },
+            "scope": 4050,
+            "src": "278:28:17",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 4033,
+              "nodeType": "Block",
+              "src": "481:53:17",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4031,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 4029,
+                      "name": "flashLoanAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4020,
+                      "src": "491:16:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 4030,
+                      "name": "_flashLoanAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4026,
+                      "src": "510:17:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "491:36:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 4032,
+                  "nodeType": "ExpressionStatement",
+                  "src": "491:36:17"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4034,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setFlashLoanAddress",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4027,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4026,
+                  "name": "_flashLoanAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4034,
+                  "src": "442:25:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4025,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "442:7:17",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "441:27:17"
+            },
+            "returnParameters": {
+              "id": 4028,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "481:0:17"
+            },
+            "scope": 4050,
+            "src": "413:121:17",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 4048,
+              "nodeType": "Block",
+              "src": "614:121:17",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 4043,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 4041,
+                          "name": "originalSender",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4036,
+                          "src": "632:14:17",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 4042,
+                          "name": "flashLoan",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4038,
+                          "src": "650:9:17",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "632:27:17",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "46756e6374696f6e2063616e206f6e6c792062652063616c6c65642062792074686520466c6173684c6f616e20636f6e7472616374",
+                        "id": 4044,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "661:55:17",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_b86a7f5f120010cebe7bf78965e44ffea6cb661fdbd5ff7db8a3774a2f9dfa9f",
+                          "typeString": "literal_string \"Function can only be called by the FlashLoan contract\""
+                        },
+                        "value": "Function can only be called by the FlashLoan contract"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_b86a7f5f120010cebe7bf78965e44ffea6cb661fdbd5ff7db8a3774a2f9dfa9f",
+                          "typeString": "literal_string \"Function can only be called by the FlashLoan contract\""
+                        }
+                      ],
+                      "id": 4040,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4137,
+                        4138
+                      ],
+                      "referencedDeclaration": 4138,
+                      "src": "624:7:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 4045,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "624:93:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 4046,
+                  "nodeType": "ExpressionStatement",
+                  "src": "624:93:17"
+                },
+                {
+                  "id": 4047,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "727:1:17"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4049,
+            "name": "onlyFlashLoanContract",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 4039,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4036,
+                  "name": "originalSender",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4049,
+                  "src": "571:22:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4035,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "571:7:17",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4038,
+                  "name": "flashLoan",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4049,
+                  "src": "595:17:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4037,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "595:7:17",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "570:43:17"
+            },
+            "src": "540:195:17",
+            "visibility": "internal"
+          }
+        ],
+        "scope": 4051,
+        "src": "175:567:17"
+      }
+    ],
+    "src": "0:743:17"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/src/contracts/Parent Contracts/BaseTokenContract.sol",
+      "exportedSymbols": {
+        "BaseTokenContract": [
+          4050
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.5",
+            ".0"
+          ]
+        },
+        "id": 4018,
+        "name": "PragmaDirective",
+        "src": "0:23:17"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            4050
+          ],
+          "name": "BaseTokenContract",
+          "scope": 4051
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "flashLoanAddress",
+              "scope": 4050,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "address",
+                  "stateMutability": "nonpayable",
+                  "type": "address"
+                },
+                "id": 4019,
+                "name": "ElementaryTypeName",
+                "src": "240:7:17"
+              }
+            ],
+            "id": 4020,
+            "name": "VariableDeclaration",
+            "src": "240:31:17"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "scope": 4050,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4021,
+                "name": "ParameterList",
+                "src": "289:2:17"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4022,
+                "name": "ParameterList",
+                "src": "299:0:17"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4023,
+                "name": "Block",
+                "src": "299:7:17"
+              }
+            ],
+            "id": 4024,
+            "name": "FunctionDefinition",
+            "src": "278:28:17"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "setFlashLoanAddress",
+              "scope": 4050,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_flashLoanAddress",
+                      "scope": 4034,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 4025,
+                        "name": "ElementaryTypeName",
+                        "src": "442:7:17"
+                      }
+                    ],
+                    "id": 4026,
+                    "name": "VariableDeclaration",
+                    "src": "442:25:17"
+                  }
+                ],
+                "id": 4027,
+                "name": "ParameterList",
+                "src": "441:27:17"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4028,
+                "name": "ParameterList",
+                "src": "481:0:17"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4020,
+                              "type": "address",
+                              "value": "flashLoanAddress"
+                            },
+                            "id": 4029,
+                            "name": "Identifier",
+                            "src": "491:16:17"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4026,
+                              "type": "address",
+                              "value": "_flashLoanAddress"
+                            },
+                            "id": 4030,
+                            "name": "Identifier",
+                            "src": "510:17:17"
+                          }
+                        ],
+                        "id": 4031,
+                        "name": "Assignment",
+                        "src": "491:36:17"
+                      }
+                    ],
+                    "id": 4032,
+                    "name": "ExpressionStatement",
+                    "src": "491:36:17"
+                  }
+                ],
+                "id": 4033,
+                "name": "Block",
+                "src": "481:53:17"
+              }
+            ],
+            "id": 4034,
+            "name": "FunctionDefinition",
+            "src": "413:121:17"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "name": "onlyFlashLoanContract",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "originalSender",
+                      "scope": 4049,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 4035,
+                        "name": "ElementaryTypeName",
+                        "src": "571:7:17"
+                      }
+                    ],
+                    "id": 4036,
+                    "name": "VariableDeclaration",
+                    "src": "571:22:17"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "flashLoan",
+                      "scope": 4049,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 4037,
+                        "name": "ElementaryTypeName",
+                        "src": "595:7:17"
+                      }
+                    ],
+                    "id": 4038,
+                    "name": "VariableDeclaration",
+                    "src": "595:17:17"
+                  }
+                ],
+                "id": 4039,
+                "name": "ParameterList",
+                "src": "570:43:17"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_b86a7f5f120010cebe7bf78965e44ffea6cb661fdbd5ff7db8a3774a2f9dfa9f",
+                                  "typeString": "literal_string \"Function can only be called by the FlashLoan contract\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                4137,
+                                4138
+                              ],
+                              "referencedDeclaration": 4138,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 4040,
+                            "name": "Identifier",
+                            "src": "624:7:17"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4036,
+                                  "type": "address",
+                                  "value": "originalSender"
+                                },
+                                "id": 4041,
+                                "name": "Identifier",
+                                "src": "632:14:17"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4038,
+                                  "type": "address",
+                                  "value": "flashLoan"
+                                },
+                                "id": 4042,
+                                "name": "Identifier",
+                                "src": "650:9:17"
+                              }
+                            ],
+                            "id": 4043,
+                            "name": "BinaryOperation",
+                            "src": "632:27:17"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "46756e6374696f6e2063616e206f6e6c792062652063616c6c65642062792074686520466c6173684c6f616e20636f6e7472616374",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"Function can only be called by the FlashLoan contract\"",
+                              "value": "Function can only be called by the FlashLoan contract"
+                            },
+                            "id": 4044,
+                            "name": "Literal",
+                            "src": "661:55:17"
+                          }
+                        ],
+                        "id": 4045,
+                        "name": "FunctionCall",
+                        "src": "624:93:17"
+                      }
+                    ],
+                    "id": 4046,
+                    "name": "ExpressionStatement",
+                    "src": "624:93:17"
+                  },
+                  {
+                    "id": 4047,
+                    "name": "PlaceholderStatement",
+                    "src": "727:1:17"
+                  }
+                ],
+                "id": 4048,
+                "name": "Block",
+                "src": "614:121:17"
+              }
+            ],
+            "id": 4049,
+            "name": "ModifierDefinition",
+            "src": "540:195:17"
+          }
+        ],
+        "id": 4050,
+        "name": "ContractDefinition",
+        "src": "175:567:17"
+      }
+    ],
+    "id": 4051,
+    "name": "SourceUnit",
+    "src": "0:743:17"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {
+        "0xac75bdbbb8843427facdac02d51246308b71961bcb927137e0be014ecaba11ca": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "AddressCheck",
+          "type": "event"
+        },
+        "0xaafe049b8d0ee49bc74e7c774478c533b19c45b3ae6e0e7478ba5b4fd11c324f": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "name": "Message3",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x298a29414B0CB378Bd39dab2F6d95E84029fC37f",
+      "transactionHash": "0x2984a8618a8af93fe73ff85b0c3d1c8f15303b368032ac3f4fb7101d5b527ad6"
+    }
+  },
+  "schemaVersion": "3.4.14",
+  "updatedAt": "2023-07-05T02:32:17.586Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
 
-import './Token_Interface.sol';
+import './Parent Contracts/Token_Interface.sol';
 import './ERC-20 Tokens/Token.sol';
 import './ERC-20 Tokens/NRM_Token.sol';
 import './ERC-20 Tokens/NAR_Token.sol';
@@ -44,14 +44,14 @@ contract EthSwap {
 	// Not iterable go retrieve them all either.
 	mapping(string => TokenInterface) public symbolToInstanceMapping;
 
+
 	constructor(address[] memory _tokens) public {
-		
-		emit LogMessage("RUNNING EthSwap Constructor");
-
 		tokens = _tokens;
-
         for (uint i = 0; i < tokens.length; i++) {
+        	
         	// Create an instance of type TokenInterface using the address
+            // Not quite polymorphism = Not creating instances of the derived
+            // children and using that, but using the address.
             TokenInterface tokenInstance = TokenInterface(tokens[i]);
             symbolToInstanceMapping[tokenInstance.getSymbol()] = tokenInstance;
         }

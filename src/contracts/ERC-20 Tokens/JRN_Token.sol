@@ -1,8 +1,9 @@
 pragma solidity ^0.5.0;
 
-import '../Token_Interface.sol';
+import '../Parent Contracts/Token_Interface.sol';
+import '../Parent Contracts/BaseTokenContract.sol';
 
-contract JRN_Token is TokenInterface {
+contract JRN_Token is BaseTokenContract, TokenInterface {
     string  public name = "Jordy Nelson";
     string  public birthPlace = "Manhattan, KS";
     string  public symbol = "JRN";
@@ -45,7 +46,7 @@ contract JRN_Token is TokenInterface {
         return symbol;
     }
     
-    function deposit(uint256 _value, address _from, address _to) public returns (bool success)
+    function deposit(uint256 _value, address _from, address _to) public onlyFlashLoanContract(msg.sender, flashLoanAddress) returns (bool success)
     {
         require(_value <= balanceOf[_from]);
         balanceOf[_from] -= _value;

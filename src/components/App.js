@@ -152,7 +152,6 @@ class App extends Component {
       // window.ethereum will only run if metamask is detected.
       if (window.ethereum) {
         window.web3 = new Web3(window.ethereum);
-        console.log("HMM")
 
         // Line below window.web3 is deprecated and not used.
       } else if (window.web3) {

@@ -1,8 +1,9 @@
 pragma solidity ^0.5.0;
 
-import '../Token_Interface.sol';
+import '../Parent Contracts/Token_Interface.sol';
+import '../Parent Contracts/BaseTokenContract.sol';
 
-contract WHN_Token is TokenInterface {
+contract WHN_Token is BaseTokenContract, TokenInterface {
     string  public name = "Willie Nelson";
     string  public birthPlace = "Abbott, TX";
     string  public symbol = "WHN";
@@ -45,7 +46,8 @@ contract WHN_Token is TokenInterface {
         return symbol;
     }
 
-    function deposit(uint256 _value, address _from, address _to) public returns (bool success)
+    function deposit(uint256 _value, address _from, address _to) public
+     onlyFlashLoanContract(msg.sender, flashLoanAddress) returns (bool success)
     {
         require(_value <= balanceOf[_from]);
         balanceOf[_from] -= _value;

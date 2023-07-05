@@ -4,6 +4,10 @@ const Web3 = require('web3');
 const contractArtifact = require('../abis/EthSwap.json');
 const contractArtifact2 = require('../abis/OracleClient.json');
 const artifactFlashLoan = require('../abis/FlashLoan.json');
+const artifactBaseToken = require('../abis/BaseTokenContract.json');
+const artifactADNToken = require('../abis/ADN_Token.json');
+
+
 
 // Check if MetaMask is available
 if (window.ethereum) {
@@ -84,5 +88,60 @@ if (window.ethereum) {
     console.log('eventFlashLoan:', values);
   });
   eventFlashLoan.on('error', console.error);
+
+
+
+
+
+  // // Retrieve the contract address from the artifact file
+  // const addressBaseToken = artifactBaseToken.networks['5777'].address;
+
+  // // Create a contract instance
+  // const baseTokenABI = artifactBaseToken.abi;
+  // const baseToken = new web3.eth.Contract(baseTokenABI, addressBaseToken);
+
+  // const eventLogMessage3 = baseToken.events.Message3();
+  // eventLogMessage3.on('data', (event) => {
+  //   const values = event.returnValues;
+  //   console.log('eventLogMessage3:', values);
+  // });
+  // eventLogMessage3.on('error', console.error);
+
+  // const eventAddressCheck = baseToken.events.AddressCheck();
+  // eventAddressCheck.on('data', (event) => {
+  //   const values = event.returnValues;
+  //   console.log('eventAddressCheck:', values);
+  // });
+  // eventAddressCheck.on('error', console.error);
+
+
+
+
+  // Retrieve the contract address from the artifact file
+  const addressADNToken = artifactADNToken.networks['5777'].address;
+
+  // Create a contract instance
+  const adnTokenABI = artifactADNToken.abi;
+  const adnToken = new web3.eth.Contract(adnTokenABI, addressADNToken);
+
+  const eventLogMessage4 = adnToken.events.Message4();
+  eventLogMessage4.on('data', (event) => {
+    const values = event.returnValues;
+    console.log('eventLogMessage4:', values);
+  });
+  eventLogMessage4.on('error', console.error);
+
+  const eventAddressCheck = adnToken.events.AddressCheck();
+  eventAddressCheck.on('data', (event) => {
+    const values = event.returnValues;
+    console.log('eventAddressCheck:', values);
+  });
+  eventAddressCheck.on('error', console.error);
+
+
+
+
+
+
 
 }

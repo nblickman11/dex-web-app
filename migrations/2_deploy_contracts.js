@@ -25,6 +25,13 @@ const MockLinkToken = artifacts.require("MockLinkToken");
 // Flash Loan Related Contracts
 const FlashLoan = artifacts.require("FlashLoan");
 
+// Deploy the BaseTokenContract so the Contract Registry can 
+// .. can pass the flash loan address to it.
+const BaseTokenContract = artifacts.require("BaseTokenContract");
+
+// Contract Registry
+const ContractRegistry = artifacts.require("ContractRegistry");
+
 
 module.exports = async function(deployer) { 
 
@@ -55,8 +62,19 @@ module.exports = async function(deployer) {
 
 
   // Return the oracleClient and flashLoan contract instance
-  const oracleClient = await OracleClient.deployed()
-  const flashLoan = await FlashLoan.deployed()
+  const oracleClient = await OracleClient.deployed();
+  const flashLoan = await FlashLoan.deployed();
+
+  // Deploy and return the BaseTokenContract
+  await deployer.deploy(BaseTokenContract);
+  const baseTokenContract = await BaseTokenContract.deployed();
+
+
+  // Deploy and return the Contract Registry
+  await deployer.deploy(ContractRegistry, flashLoan.address,
+    tokenInstancesSlice.map(token => token.address));
+
+  const contractRegistry = await ContractRegistry.deployed();
 
 
   /* 
@@ -77,6 +95,8 @@ module.exports = async function(deployer) {
 
   // Send 1 million of Ganache account's MockLinkTokens to the OracleClient.
   await tokenInstances[14].transfer(oracleClient.address, transferAmount);
+
+
 
 };
 

@@ -38,7 +38,7 @@ function tokens(n) {
     - [Deployer, investor] = first and second account in Ganache.
     - Contract is a truffle function.  
 	*/ 
-contract('EthSwap', ([deployer, investor]) => {
+contract('FlashLoan', ([deployer, investor]) => {
   let tokenContracts = [];
   let tokenNames = ["Nelson Blickman", "Nelson Mandela", "Nelson Rockefeller",
    "Alice Nelson", "Willie Nelson", "Nelly Furtado", "Cornell Haynes (Nelly)",

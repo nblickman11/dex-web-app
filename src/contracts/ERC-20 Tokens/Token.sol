@@ -3,9 +3,10 @@ pragma solidity ^0.5.0;
 // ERC-20 is set of rules that all the crypto's abide by.  I.E. Token must have 
 // transfer and balanceOf functions.
 
-import '../Token_Interface.sol';
+import '../Parent Contracts/Token_Interface.sol';
+import '../Parent Contracts/BaseTokenContract.sol';
 
-contract Token is TokenInterface {
+contract Token is BaseTokenContract, TokenInterface {
     string  public name = "Nelson Blickman";
     string  public birthPlace = "Manhattan, NY";
     string  public symbol = "NTB";
@@ -51,7 +52,8 @@ contract Token is TokenInterface {
         return symbol;
     }
     
-    function deposit(uint256 _value, address _from, address _to) public returns (bool success)
+    function deposit(uint256 _value, address _from, address _to) public
+     onlyFlashLoanContract(msg.sender, flashLoanAddress) returns (bool success)
     {
         require(_value <= balanceOf[_from]);
         balanceOf[_from] -= _value;

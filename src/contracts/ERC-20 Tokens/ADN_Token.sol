@@ -1,8 +1,9 @@
 pragma solidity ^0.5.0;
 
-import '../Token_Interface.sol';
+import '../Parent Contracts/Token_Interface.sol';
+import '../Parent Contracts/BaseTokenContract.sol';
 
-contract ADN_Token is TokenInterface {
+contract ADN_Token is BaseTokenContract, TokenInterface {
     string  public name = "Alice Nelson";
     string  public birthPlace = "New Orleans, LA";
     
@@ -12,6 +13,8 @@ contract ADN_Token is TokenInterface {
     uint8 public decimals = 18;
     uint public rate = 7;
 
+    event AddressCheck(address);
+    event Message4(string);
 
     event Transfer(
         address indexed _from,
@@ -28,6 +31,7 @@ contract ADN_Token is TokenInterface {
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
 
+    // address only needs to be passed here because the parent does it
     constructor() public {
         balanceOf[msg.sender] = totalSupply;
     }
@@ -47,7 +51,9 @@ contract ADN_Token is TokenInterface {
         return symbol;
     }
 
-    function deposit(uint256 _value, address _from, address _to) public returns (bool success)
+
+    function deposit(uint256 _value, address _from, address _to) public 
+    onlyFlashLoanContract(msg.sender, flashLoanAddress) returns (bool success)
     {
         require(_value <= balanceOf[_from]);
         balanceOf[_from] -= _value;

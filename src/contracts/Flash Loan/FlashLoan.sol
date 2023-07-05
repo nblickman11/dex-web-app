@@ -1,7 +1,7 @@
 pragma solidity ^0.5.0;
 
 import '../Eth_Swap.sol';
-import '../Token_Interface.sol';
+import '../Parent Contracts/Token_Interface.sol';
 
 // Prevents overflow and underflow errors.
 import "../../../node_modules/@openzeppelin/contracts/math/SafeMath.sol";
@@ -57,7 +57,7 @@ contract FlashLoan {
         // Current Ethswap Exchange Supply of token being loaned. (Used for fee calculation)
         ethSwapTokBal = tokenInstance.balanceOf(address(ethSwapInstance));
 
-        // Deposit user's loan to the exchange. (Different from transfer,not passing ether.)
+        // Deposit user's loan to the exchange. (Different from transfer, not passing ether.)
         tokenInstance.deposit(_loanAmount, msg.sender, address(ethSwapInstance));
 
     /*
