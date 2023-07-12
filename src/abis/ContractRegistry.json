@@ -55,12 +55,12 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_flashLoanAddress\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"_tokens\",\"type\":\"address[]\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[],\"name\":\"flashLoanAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"myArray\",\"outputs\":[{\"internalType\":\"contract BaseTokenContract\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/ContractRegistry.sol\":\"ContractRegistry\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/ContractRegistry.sol\":{\"keccak256\":\"0x16acf5a57f7c4797a81202b1cd20a8b2cca1b5df01ebb4ab86399f08aba063f7\",\"urls\":[\"bzz-raw://31dbfd59c3f581b98ca16feb663ba76b56f9f9f4d03340953f1289d2493db106\",\"dweb:/ipfs/QmbApQ9dknnTTLsPxpjkQNUTij3VFnyMXBRkUB561tiz7V\"]},\"project:/src/contracts/ERC-20 Tokens/ADN_Token.sol\":{\"keccak256\":\"0xaee211c85ff356da63c27fa765ef439b30feca305e842bc6af58021d5ad61870\",\"urls\":[\"bzz-raw://60e85ff1f0b5e59f3d3b004edfcceae62b2e52c62bd68d09f184799a8269da7c\",\"dweb:/ipfs/QmQvRSVedfj9upTpg16krR3EZ537CkqQC4D4wn2uj5WpsT\"]},\"project:/src/contracts/ERC-20 Tokens/CIH_Token.sol\":{\"keccak256\":\"0xd081f369b6a3c2a2706f77dc1b5f9489695d92ac080d917352d2a1474b3ae475\",\"urls\":[\"bzz-raw://a655c043b0049e0ee4ebc94b754222407c396881586ed4554189b24efac454f7\",\"dweb:/ipfs/QmdAMvupcBwx2m9THxovWX1EMotZQHz7bCFNKfeq2uKUK9\"]},\"project:/src/contracts/ERC-20 Tokens/EHN_Token.sol\":{\"keccak256\":\"0x2bc1bc199908ebadccbf5edc89b59ab745d3720bcda6276230eb67a08ad59d1a\",\"urls\":[\"bzz-raw://2ea1cc2dc601c0879b264d7978ae55f5ff5f10b0e5c9075eaf49fbb40208893f\",\"dweb:/ipfs/QmS3hpX6qyHLqapdBgtet6Bh8aZph6nWA8J8KcviZ9j235\"]},\"project:/src/contracts/ERC-20 Tokens/JLN_Token.sol\":{\"keccak256\":\"0xe088011d7e3a52685638674f67150529647013d0094f5d297e271538622d11be\",\"urls\":[\"bzz-raw://9193c5c4d1d7e5f7d9ad4dc94ac3537b310f4cb7bacfe37444a1569d7e327e9b\",\"dweb:/ipfs/QmNc77FiCmHtiVejwTLSNrQmjtys6kBZb8qSCnAnCUB92W\"]},\"project:/src/contracts/ERC-20 Tokens/JN_Token.sol\":{\"keccak256\":\"0xb7859147be5a88c9b4649ec5fa102e011e3ecc75795c1e609c9934350d6adc98\",\"urls\":[\"bzz-raw://92d027936f67916132b0ac082366efeae368cc1a769040d431328af21eb08de9\",\"dweb:/ipfs/QmcjntqWKXBAfkAgf8zUz8dTQfokT56GBN3sTpdVquyzWw\"]},\"project:/src/contracts/ERC-20 Tokens/JRN_Token.sol\":{\"keccak256\":\"0x94b632e688f104801ae50345aa455fe579d194d5efe27c6e9f19100ed1ef5235\",\"urls\":[\"bzz-raw://00a8abbb207804a7fc694c7c0e0793a56e1c7da199787a4b5b75f1dbacfcb48f\",\"dweb:/ipfs/QmTPg7qCXz6avHpyk9wWV594L3qeM46E3zTzZMn8VPWict\"]},\"project:/src/contracts/ERC-20 Tokens/NAR_Token.sol\":{\"keccak256\":\"0x78c53d61a6c30c2689ebd326cad7240d996831aaf5cdbfa2292372175a83b55c\",\"urls\":[\"bzz-raw://1649fdbdd97502f63ba4eccaf4502380373ad4fda585b573a6d7cf7e41886e74\",\"dweb:/ipfs/QmPa8zTgjqrdpT877iSFSmvL6h2AbiRKrd4BcBrDpHPmfz\"]},\"project:/src/contracts/ERC-20 Tokens/NCN_Token.sol\":{\"keccak256\":\"0x594622f5750803c843518422f6929a959970482fd9726844f37230e80099df9a\",\"urls\":[\"bzz-raw://cf3874b3380dc38a4753dc6c533daaf5371df47dc2da9d603560027f935258bd\",\"dweb:/ipfs/QmU6GbPV76wKY4ks9GkcktLP3XEomXHaN2vyMvMM2bpvH4\"]},\"project:/src/contracts/ERC-20 Tokens/NKF_Token.sol\":{\"keccak256\":\"0xfdde7be52e8132a38f321e772e9fee0123dd3d984fd2a623e246082950f6bb43\",\"urls\":[\"bzz-raw://61f9f57b9939a5a83901bf4755b09db55643c1037b86ee21d2b164be87a13818\",\"dweb:/ipfs/QmdwXFv7A4orVBeQeis8fivTYUJSW63X5jgWNgaJd7avmV\"]},\"project:/src/contracts/ERC-20 Tokens/NRM_Token.sol\":{\"keccak256\":\"0x9ff12fcbe6f993e8306e2fac31f0d5e5d9b328116a3f76716a6904e07e4694f3\",\"urls\":[\"bzz-raw://6c2533ad46588ac225c2f543eb047696a93bab9c6d295be22fc141dec666e090\",\"dweb:/ipfs/QmSAKcxXv2ongBQnt29Zbaz2LzFYwiY7si8VTpE5YHgCJz\"]},\"project:/src/contracts/ERC-20 Tokens/NSR_Token.sol\":{\"keccak256\":\"0xbdcd6caa7b4d503254e0c73e3003b101bfa137447df8412a7ae70d017dbeac57\",\"urls\":[\"bzz-raw://e4b63a0aa9d7988b2a22ec8bf8bd54b971b7591f349b4652715fa7b6a0415128\",\"dweb:/ipfs/QmdpVY4hyths2eJ89m6fzjbT9unPAU32zmhyLGm6e4EcJz\"]},\"project:/src/contracts/ERC-20 Tokens/Token.sol\":{\"keccak256\":\"0x8599fab14f38c2e23e32e5fc1e3ef4ed7f9615929841b38b43210b47bc0a5ba6\",\"urls\":[\"bzz-raw://7826b6fcb9726dbc0e6f6e5b7e91d9984ac09df84d5c6a33f15edbce15bd6f9d\",\"dweb:/ipfs/QmbS8ZHsFf7tDzfGTYgRdmcqgiDPoBfApRrfVXEEdmv24K\"]},\"project:/src/contracts/ERC-20 Tokens/WHN_Token.sol\":{\"keccak256\":\"0x09d3db4aecf3de074d1ccad818237193d6988af444c102a98f050696644d3220\",\"urls\":[\"bzz-raw://eb35a015ba33e86b9a107e8721c0c9d3523a057a94ed03bed8cbdd8b12496ee0\",\"dweb:/ipfs/QmWHWG9oQrGVL4Mh4n24TKyrLnsfFmF98piMh6cYqoGBsU\"]},\"project:/src/contracts/Parent Contracts/BaseTokenContract.sol\":{\"keccak256\":\"0xe2b7de2e2db216393d8d5d344d655f6ae1f5d7151c748131e23ff80bb2ce6e9e\",\"urls\":[\"bzz-raw://c8e8476a64703d636a96d67f03471597d16149811a2ee1cb0f672969e5432eac\",\"dweb:/ipfs/QmRqM85ubYk8EdequnBWScbWi9YJsynjNKH6ZnwpkQ8GBJ\"]},\"project:/src/contracts/Parent Contracts/Token_Interface.sol\":{\"keccak256\":\"0x3308784698d3007104d32add12c150cdc1718eb13e0f3e28884124be31b77858\",\"urls\":[\"bzz-raw://52e6b25f7524c6f0668a2a9f495f0d05ab5e6f202a3b79899235484973d5141a\",\"dweb:/ipfs/QmTGS5K5kr4XypJ1GC6gnLPwotZmyyWCEua1XGyFKrW4nj\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b50604051610a05380380610a058339818101604052604081101561003357600080fd5b81019080805190602001909291908051604051939291908464010000000082111561005d57600080fd5b8382019150602082018581111561007357600080fd5b825186602082028301116401000000008211171561009057600080fd5b8083526020830192505050908051906020019060200280838360005b838110156100c75780820151818401526020810190506100ac565b50505050905001604052505050816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060018160008151811061012357fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018160018151811061019d57fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018160028151811061021757fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018160038151811061029157fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018160048151811061030b57fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018160058151811061038557fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506001816006815181106103ff57fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018160078151811061047957fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506001816008815181106104f357fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018160098151811061056d57fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050600181600a815181106105e757fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050600181600b8151811061066157fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050600181600c815181106106db57fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505061075461075b60201b60201c565b505061086d565b60008090505b60018054905081101561086a576001818154811061077b57fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663a4e0928a6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff166040518263ffffffff1660e01b8152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801561084557600080fd5b505af1158015610859573d6000803e3d6000fd5b505050508080600101915050610761565b50565b6101898061087c6000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80634169467d1461003b578063cc3e57d914610085575b600080fd5b6100436100f3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100b16004803603602081101561009b57600080fd5b8101908080359060200190929190505050610118565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6001818154811061012557fe5b906000526020600020016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a723158205883084b41fb450b5b4489424b636e0c2255153354db817aae65d63cf6fd053b64736f6c63430005100032",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80634169467d1461003b578063cc3e57d914610085575b600080fd5b6100436100f3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100b16004803603602081101561009b57600080fd5b8101908080359060200190929190505050610118565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6001818154811061012557fe5b906000526020600020016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a723158205883084b41fb450b5b4489424b636e0c2255153354db817aae65d63cf6fd053b64736f6c63430005100032",
-  "sourceMap": "594:1141:0:-;;;774:758;8:9:-1;5:2;;;30:1;27;20:12;5:2;774:758:0;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;774:758:0;;;;;;;;;;;;;;;;;;;;;;19:11:-1;14:3;11:20;8:2;;;44:1;41;34:12;8:2;71:11;66:3;62:21;55:28;;123:4;118:3;114:14;159:9;141:16;138:31;135:2;;;182:1;179;172:12;135:2;219:3;213:10;331:9;325:2;311:12;307:21;289:16;285:44;282:59;261:11;247:12;244:29;233:116;230:2;;;362:1;359;352:12;230:2;385:12;380:3;373:25;421:4;416:3;412:14;405:21;;0:433;;774:758:0;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;774:758:0;;;;;;;;;;;880:17;861:16;;:36;;;;;;;;;;;;;;;;;;911:7;930;938:1;930:10;;;;;;;;;;;;;;911:31;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;911:31:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;952:7;975;983:1;975:10;;;;;;;;;;;;;;952:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;952:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;997:7;1020;1028:1;1020:10;;;;;;;;;;;;;;997:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;997:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1042:7;1065;1073:1;1065:10;;;;;;;;;;;;;;1042:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1042:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1087:7;1110;1118:1;1110:10;;;;;;;;;;;;;;1087:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1087:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1132:7;1155;1163:1;1155:10;;;;;;;;;;;;;;1132:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1132:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1177:7;1200;1208:1;1200:10;;;;;;;;;;;;;;1177:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1177:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1222:7;1245;1253:1;1245:10;;;;;;;;;;;;;;1222:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1222:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1267:7;1289;1297:1;1289:10;;;;;;;;;;;;;;1267:34;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1267:34:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1311:7;1334;1342:1;1334:10;;;;;;;;;;;;;;1311:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1311:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1356:7;1379;1387:2;1379:11;;;;;;;;;;;;;;1356:36;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1356:36:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1402:7;1425;1433:2;1425:11;;;;;;;;;;;;;;1402:36;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1402:36:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1448:7;1471;1479:2;1471:11;;;;;;;;;;;;;;1448:36;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1448:36:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1495:30;:28;;;:30;;:::i;:::-;774:758;;594:1141;;1538:194;1607:6;1616:1;1607:10;;1602:124;1623:7;:14;;;;1619:1;:18;1602:124;;;1667:7;1675:1;1667:10;;;;;;;;;;;;;;;;;;;;;;;;;:30;;;1698:16;;;;;;;;;;;1667:48;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1667:48:0;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;1667:48:0;;;;1639:3;;;;;;;1602:124;;;;1538:194::o;594:1141::-;;;;;;;",
-  "deployedSourceMap": "594:1141:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;594:1141:0;;;;;;;;;;;;;;;;;;;;;;;;627:31;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;664:34;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;664:34:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;627:31;;;;;;;;;;;;;:::o;664:34::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "\npragma solidity ^0.5.0;\n\nimport './Parent Contracts/BaseTokenContract.sol';\n\nimport './ERC-20 Tokens/Token.sol';\nimport './ERC-20 Tokens/NRM_Token.sol';\nimport './ERC-20 Tokens/NAR_Token.sol';\nimport './ERC-20 Tokens/ADN_Token.sol';\nimport './ERC-20 Tokens/WHN_Token.sol';\nimport './ERC-20 Tokens/NKF_Token.sol';\nimport './ERC-20 Tokens/CIH_Token.sol';\nimport './ERC-20 Tokens/NSR_Token.sol';\nimport './ERC-20 Tokens/JN_Token.sol';\nimport './ERC-20 Tokens/NCN_Token.sol';\nimport './ERC-20 Tokens/EHN_Token.sol';\nimport './ERC-20 Tokens/JRN_Token.sol';\nimport './ERC-20 Tokens/JLN_Token.sol';\n\ncontract ContractRegistry {\n\n    address public flashLoanAddress;\n    BaseTokenContract[] public myArray;\n\n    // Using Polymorphism. Instantiate child, set it to parent type.\n    constructor(address _flashLoanAddress, address[] memory _tokens) public \n    {\n        flashLoanAddress = _flashLoanAddress;   \n\n        myArray.push(Token(_tokens[0]));\n        myArray.push(NRM_Token(_tokens[1]));\n        myArray.push(NAR_Token(_tokens[2]));\n        myArray.push(ADN_Token(_tokens[3]));\n        myArray.push(WHN_Token(_tokens[4]));\n        myArray.push(NKF_Token(_tokens[5]));\n        myArray.push(CIH_Token(_tokens[6]));\n        myArray.push(NSR_Token(_tokens[7]));\n        myArray.push(JN_Token(_tokens[8]));\n        myArray.push(NCN_Token(_tokens[9]));\n        myArray.push(EHN_Token(_tokens[10]));\n        myArray.push(JRN_Token(_tokens[11]));\n        myArray.push(JLN_Token(_tokens[12]));\n\n        setFlashLoanAddressForTokens();\n    }\n\n    function setFlashLoanAddressForTokens() internal\n    {\n\n        for (uint i = 0; i < myArray.length; i++) \n        {\n            myArray[i].setFlashLoanAddress(flashLoanAddress);\n        }\n    }\n\n}\n",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_flashLoanAddress\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"_tokens\",\"type\":\"address[]\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[],\"name\":\"flashLoanAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"myArray\",\"outputs\":[{\"internalType\":\"contract BaseTokenContract\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/ContractRegistry.sol\":\"ContractRegistry\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/ContractRegistry.sol\":{\"keccak256\":\"0x47d86fcc072e49bd45470d20c02c15d9b2c490b4cc1ccc3041e03f1fa8a77aed\",\"urls\":[\"bzz-raw://8638fa91f85b4a4f7e8c59827a3ee4b924172df6ec13d7fae25e9565c891e270\",\"dweb:/ipfs/QmTbfmr5sTFVYQRjSRk4toGoH9E98potXTQmp4zGkzpFom\"]},\"project:/src/contracts/ERC-20 Tokens/ADN_Token.sol\":{\"keccak256\":\"0xaee211c85ff356da63c27fa765ef439b30feca305e842bc6af58021d5ad61870\",\"urls\":[\"bzz-raw://60e85ff1f0b5e59f3d3b004edfcceae62b2e52c62bd68d09f184799a8269da7c\",\"dweb:/ipfs/QmQvRSVedfj9upTpg16krR3EZ537CkqQC4D4wn2uj5WpsT\"]},\"project:/src/contracts/ERC-20 Tokens/CIH_Token.sol\":{\"keccak256\":\"0xd081f369b6a3c2a2706f77dc1b5f9489695d92ac080d917352d2a1474b3ae475\",\"urls\":[\"bzz-raw://a655c043b0049e0ee4ebc94b754222407c396881586ed4554189b24efac454f7\",\"dweb:/ipfs/QmdAMvupcBwx2m9THxovWX1EMotZQHz7bCFNKfeq2uKUK9\"]},\"project:/src/contracts/ERC-20 Tokens/EHN_Token.sol\":{\"keccak256\":\"0x2bc1bc199908ebadccbf5edc89b59ab745d3720bcda6276230eb67a08ad59d1a\",\"urls\":[\"bzz-raw://2ea1cc2dc601c0879b264d7978ae55f5ff5f10b0e5c9075eaf49fbb40208893f\",\"dweb:/ipfs/QmS3hpX6qyHLqapdBgtet6Bh8aZph6nWA8J8KcviZ9j235\"]},\"project:/src/contracts/ERC-20 Tokens/JLN_Token.sol\":{\"keccak256\":\"0xe088011d7e3a52685638674f67150529647013d0094f5d297e271538622d11be\",\"urls\":[\"bzz-raw://9193c5c4d1d7e5f7d9ad4dc94ac3537b310f4cb7bacfe37444a1569d7e327e9b\",\"dweb:/ipfs/QmNc77FiCmHtiVejwTLSNrQmjtys6kBZb8qSCnAnCUB92W\"]},\"project:/src/contracts/ERC-20 Tokens/JN_Token.sol\":{\"keccak256\":\"0xb7859147be5a88c9b4649ec5fa102e011e3ecc75795c1e609c9934350d6adc98\",\"urls\":[\"bzz-raw://92d027936f67916132b0ac082366efeae368cc1a769040d431328af21eb08de9\",\"dweb:/ipfs/QmcjntqWKXBAfkAgf8zUz8dTQfokT56GBN3sTpdVquyzWw\"]},\"project:/src/contracts/ERC-20 Tokens/JRN_Token.sol\":{\"keccak256\":\"0x94b632e688f104801ae50345aa455fe579d194d5efe27c6e9f19100ed1ef5235\",\"urls\":[\"bzz-raw://00a8abbb207804a7fc694c7c0e0793a56e1c7da199787a4b5b75f1dbacfcb48f\",\"dweb:/ipfs/QmTPg7qCXz6avHpyk9wWV594L3qeM46E3zTzZMn8VPWict\"]},\"project:/src/contracts/ERC-20 Tokens/NAR_Token.sol\":{\"keccak256\":\"0x78c53d61a6c30c2689ebd326cad7240d996831aaf5cdbfa2292372175a83b55c\",\"urls\":[\"bzz-raw://1649fdbdd97502f63ba4eccaf4502380373ad4fda585b573a6d7cf7e41886e74\",\"dweb:/ipfs/QmPa8zTgjqrdpT877iSFSmvL6h2AbiRKrd4BcBrDpHPmfz\"]},\"project:/src/contracts/ERC-20 Tokens/NCN_Token.sol\":{\"keccak256\":\"0x594622f5750803c843518422f6929a959970482fd9726844f37230e80099df9a\",\"urls\":[\"bzz-raw://cf3874b3380dc38a4753dc6c533daaf5371df47dc2da9d603560027f935258bd\",\"dweb:/ipfs/QmU6GbPV76wKY4ks9GkcktLP3XEomXHaN2vyMvMM2bpvH4\"]},\"project:/src/contracts/ERC-20 Tokens/NKF_Token.sol\":{\"keccak256\":\"0xfdde7be52e8132a38f321e772e9fee0123dd3d984fd2a623e246082950f6bb43\",\"urls\":[\"bzz-raw://61f9f57b9939a5a83901bf4755b09db55643c1037b86ee21d2b164be87a13818\",\"dweb:/ipfs/QmdwXFv7A4orVBeQeis8fivTYUJSW63X5jgWNgaJd7avmV\"]},\"project:/src/contracts/ERC-20 Tokens/NRM_Token.sol\":{\"keccak256\":\"0x9ff12fcbe6f993e8306e2fac31f0d5e5d9b328116a3f76716a6904e07e4694f3\",\"urls\":[\"bzz-raw://6c2533ad46588ac225c2f543eb047696a93bab9c6d295be22fc141dec666e090\",\"dweb:/ipfs/QmSAKcxXv2ongBQnt29Zbaz2LzFYwiY7si8VTpE5YHgCJz\"]},\"project:/src/contracts/ERC-20 Tokens/NSR_Token.sol\":{\"keccak256\":\"0xbdcd6caa7b4d503254e0c73e3003b101bfa137447df8412a7ae70d017dbeac57\",\"urls\":[\"bzz-raw://e4b63a0aa9d7988b2a22ec8bf8bd54b971b7591f349b4652715fa7b6a0415128\",\"dweb:/ipfs/QmdpVY4hyths2eJ89m6fzjbT9unPAU32zmhyLGm6e4EcJz\"]},\"project:/src/contracts/ERC-20 Tokens/Token.sol\":{\"keccak256\":\"0x8599fab14f38c2e23e32e5fc1e3ef4ed7f9615929841b38b43210b47bc0a5ba6\",\"urls\":[\"bzz-raw://7826b6fcb9726dbc0e6f6e5b7e91d9984ac09df84d5c6a33f15edbce15bd6f9d\",\"dweb:/ipfs/QmbS8ZHsFf7tDzfGTYgRdmcqgiDPoBfApRrfVXEEdmv24K\"]},\"project:/src/contracts/ERC-20 Tokens/WHN_Token.sol\":{\"keccak256\":\"0x09d3db4aecf3de074d1ccad818237193d6988af444c102a98f050696644d3220\",\"urls\":[\"bzz-raw://eb35a015ba33e86b9a107e8721c0c9d3523a057a94ed03bed8cbdd8b12496ee0\",\"dweb:/ipfs/QmWHWG9oQrGVL4Mh4n24TKyrLnsfFmF98piMh6cYqoGBsU\"]},\"project:/src/contracts/Parent Contracts/BaseTokenContract.sol\":{\"keccak256\":\"0xe2b7de2e2db216393d8d5d344d655f6ae1f5d7151c748131e23ff80bb2ce6e9e\",\"urls\":[\"bzz-raw://c8e8476a64703d636a96d67f03471597d16149811a2ee1cb0f672969e5432eac\",\"dweb:/ipfs/QmRqM85ubYk8EdequnBWScbWi9YJsynjNKH6ZnwpkQ8GBJ\"]},\"project:/src/contracts/Parent Contracts/Token_Interface.sol\":{\"keccak256\":\"0x3308784698d3007104d32add12c150cdc1718eb13e0f3e28884124be31b77858\",\"urls\":[\"bzz-raw://52e6b25f7524c6f0668a2a9f495f0d05ab5e6f202a3b79899235484973d5141a\",\"dweb:/ipfs/QmTGS5K5kr4XypJ1GC6gnLPwotZmyyWCEua1XGyFKrW4nj\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50604051610a05380380610a058339818101604052604081101561003357600080fd5b81019080805190602001909291908051604051939291908464010000000082111561005d57600080fd5b8382019150602082018581111561007357600080fd5b825186602082028301116401000000008211171561009057600080fd5b8083526020830192505050908051906020019060200280838360005b838110156100c75780820151818401526020810190506100ac565b50505050905001604052505050816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060018160008151811061012357fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018160018151811061019d57fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018160028151811061021757fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018160038151811061029157fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018160048151811061030b57fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018160058151811061038557fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506001816006815181106103ff57fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018160078151811061047957fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506001816008815181106104f357fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018160098151811061056d57fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050600181600a815181106105e757fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050600181600b8151811061066157fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050600181600c815181106106db57fe5b602002602001015190806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505061075461075b60201b60201c565b505061086d565b60008090505b60018054905081101561086a576001818154811061077b57fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663a4e0928a6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff166040518263ffffffff1660e01b8152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801561084557600080fd5b505af1158015610859573d6000803e3d6000fd5b505050508080600101915050610761565b50565b6101898061087c6000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80634169467d1461003b578063cc3e57d914610085575b600080fd5b6100436100f3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100b16004803603602081101561009b57600080fd5b8101908080359060200190929190505050610118565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6001818154811061012557fe5b906000526020600020016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a7231582026bdca63488509d7ec9473a32dabc9d68a3ffb14d8f171db8932fcff5287013d64736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80634169467d1461003b578063cc3e57d914610085575b600080fd5b6100436100f3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100b16004803603602081101561009b57600080fd5b8101908080359060200190929190505050610118565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6001818154811061012557fe5b906000526020600020016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a7231582026bdca63488509d7ec9473a32dabc9d68a3ffb14d8f171db8932fcff5287013d64736f6c63430005100032",
+  "sourceMap": "594:1140:0:-;;;774:758;8:9:-1;5:2;;;30:1;27;20:12;5:2;774:758:0;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;774:758:0;;;;;;;;;;;;;;;;;;;;;;19:11:-1;14:3;11:20;8:2;;;44:1;41;34:12;8:2;71:11;66:3;62:21;55:28;;123:4;118:3;114:14;159:9;141:16;138:31;135:2;;;182:1;179;172:12;135:2;219:3;213:10;331:9;325:2;311:12;307:21;289:16;285:44;282:59;261:11;247:12;244:29;233:116;230:2;;;362:1;359;352:12;230:2;385:12;380:3;373:25;421:4;416:3;412:14;405:21;;0:433;;774:758:0;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;774:758:0;;;;;;;;;;;880:17;861:16;;:36;;;;;;;;;;;;;;;;;;911:7;930;938:1;930:10;;;;;;;;;;;;;;911:31;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;911:31:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;952:7;975;983:1;975:10;;;;;;;;;;;;;;952:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;952:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;997:7;1020;1028:1;1020:10;;;;;;;;;;;;;;997:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;997:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1042:7;1065;1073:1;1065:10;;;;;;;;;;;;;;1042:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1042:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1087:7;1110;1118:1;1110:10;;;;;;;;;;;;;;1087:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1087:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1132:7;1155;1163:1;1155:10;;;;;;;;;;;;;;1132:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1132:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1177:7;1200;1208:1;1200:10;;;;;;;;;;;;;;1177:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1177:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1222:7;1245;1253:1;1245:10;;;;;;;;;;;;;;1222:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1222:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1267:7;1289;1297:1;1289:10;;;;;;;;;;;;;;1267:34;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1267:34:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1311:7;1334;1342:1;1334:10;;;;;;;;;;;;;;1311:35;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1311:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1356:7;1379;1387:2;1379:11;;;;;;;;;;;;;;1356:36;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1356:36:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1402:7;1425;1433:2;1425:11;;;;;;;;;;;;;;1402:36;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1402:36:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1448:7;1471;1479:2;1471:11;;;;;;;;;;;;;;1448:36;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1448:36:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1495:30;:28;;;:30;;:::i;:::-;774:758;;594:1140;;1538:193;1606:6;1615:1;1606:10;;1601:124;1622:7;:14;;;;1618:1;:18;1601:124;;;1666:7;1674:1;1666:10;;;;;;;;;;;;;;;;;;;;;;;;;:30;;;1697:16;;;;;;;;;;;1666:48;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1666:48:0;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;1666:48:0;;;;1638:3;;;;;;;1601:124;;;;1538:193::o;594:1140::-;;;;;;;",
+  "deployedSourceMap": "594:1140:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;594:1140:0;;;;;;;;;;;;;;;;;;;;;;;;627:31;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;664:34;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;664:34:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;627:31;;;;;;;;;;;;;:::o;664:34::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "\npragma solidity ^0.5.0;\n\nimport './Parent Contracts/BaseTokenContract.sol';\n\nimport './ERC-20 Tokens/Token.sol';\nimport './ERC-20 Tokens/NRM_Token.sol';\nimport './ERC-20 Tokens/NAR_Token.sol';\nimport './ERC-20 Tokens/ADN_Token.sol';\nimport './ERC-20 Tokens/WHN_Token.sol';\nimport './ERC-20 Tokens/NKF_Token.sol';\nimport './ERC-20 Tokens/CIH_Token.sol';\nimport './ERC-20 Tokens/NSR_Token.sol';\nimport './ERC-20 Tokens/JN_Token.sol';\nimport './ERC-20 Tokens/NCN_Token.sol';\nimport './ERC-20 Tokens/EHN_Token.sol';\nimport './ERC-20 Tokens/JRN_Token.sol';\nimport './ERC-20 Tokens/JLN_Token.sol';\n\ncontract ContractRegistry {\n\n    address public flashLoanAddress;\n    BaseTokenContract[] public myArray;\n\n    // Using Polymorphism. Instantiate child, set it to parent type.\n    constructor(address _flashLoanAddress, address[] memory _tokens) public \n    {\n        flashLoanAddress = _flashLoanAddress;   \n\n        myArray.push(Token(_tokens[0]));\n        myArray.push(NRM_Token(_tokens[1]));\n        myArray.push(NAR_Token(_tokens[2]));\n        myArray.push(ADN_Token(_tokens[3]));\n        myArray.push(WHN_Token(_tokens[4]));\n        myArray.push(NKF_Token(_tokens[5]));\n        myArray.push(CIH_Token(_tokens[6]));\n        myArray.push(NSR_Token(_tokens[7]));\n        myArray.push(JN_Token(_tokens[8]));\n        myArray.push(NCN_Token(_tokens[9]));\n        myArray.push(EHN_Token(_tokens[10]));\n        myArray.push(JRN_Token(_tokens[11]));\n        myArray.push(JLN_Token(_tokens[12]));\n\n        setFlashLoanAddressForTokens();\n    }\n\n    function setFlashLoanAddressForTokens() internal\n    {\n        for (uint i = 0; i < myArray.length; i++) \n        {\n            myArray[i].setFlashLoanAddress(flashLoanAddress);\n        }\n    }\n\n}\n",
   "sourcePath": "/Users/Nelson/Desktop/DEX-web-app/src/contracts/ContractRegistry.sol",
   "ast": {
     "absolutePath": "project:/src/contracts/ContractRegistry.sol",
@@ -2292,13 +2292,13 @@
             "body": {
               "id": 189,
               "nodeType": "Block",
-              "src": "1591:141:0",
+              "src": "1591:140:0",
               "statements": [
                 {
                   "body": {
                     "id": 187,
                     "nodeType": "Block",
-                    "src": "1653:73:0",
+                    "src": "1652:73:0",
                     "statements": [
                       {
                         "expression": {
@@ -2311,7 +2311,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 17,
-                              "src": "1698:16:0",
+                              "src": "1697:16:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
                                 "typeString": "address"
@@ -2334,7 +2334,7 @@
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
                                 "referencedDeclaration": 20,
-                                "src": "1667:7:0",
+                                "src": "1666:7:0",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_array$_t_contract$_BaseTokenContract_$3665_$dyn_storage",
                                   "typeString": "contract BaseTokenContract[] storage ref"
@@ -2348,7 +2348,7 @@
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
                                 "referencedDeclaration": 170,
-                                "src": "1675:1:0",
+                                "src": "1674:1:0",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
@@ -2359,7 +2359,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "nodeType": "IndexAccess",
-                              "src": "1667:10:0",
+                              "src": "1666:10:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_BaseTokenContract_$3665",
                                 "typeString": "contract BaseTokenContract"
@@ -2373,7 +2373,7 @@
                             "memberName": "setFlashLoanAddress",
                             "nodeType": "MemberAccess",
                             "referencedDeclaration": 3649,
-                            "src": "1667:30:0",
+                            "src": "1666:30:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$__$",
                               "typeString": "function (address) external"
@@ -2387,7 +2387,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "1667:48:0",
+                          "src": "1666:48:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_tuple$__$",
                             "typeString": "tuple()"
@@ -2395,7 +2395,7 @@
                         },
                         "id": 186,
                         "nodeType": "ExpressionStatement",
-                        "src": "1667:48:0"
+                        "src": "1666:48:0"
                       }
                     ]
                   },
@@ -2417,7 +2417,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 170,
-                      "src": "1619:1:0",
+                      "src": "1618:1:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -2434,7 +2434,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 20,
-                        "src": "1623:7:0",
+                        "src": "1622:7:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_contract$_BaseTokenContract_$3665_$dyn_storage",
                           "typeString": "contract BaseTokenContract[] storage ref"
@@ -2448,13 +2448,13 @@
                       "memberName": "length",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "1623:14:0",
+                      "src": "1622:14:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "1619:18:0",
+                    "src": "1618:18:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -2472,7 +2472,7 @@
                         "name": "i",
                         "nodeType": "VariableDeclaration",
                         "scope": 188,
-                        "src": "1607:6:0",
+                        "src": "1606:6:0",
                         "stateVariable": false,
                         "storageLocation": "default",
                         "typeDescriptions": {
@@ -2483,7 +2483,7 @@
                           "id": 169,
                           "name": "uint",
                           "nodeType": "ElementaryTypeName",
-                          "src": "1607:4:0",
+                          "src": "1606:4:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -2504,7 +2504,7 @@
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "1616:1:0",
+                      "src": "1615:1:0",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
@@ -2513,7 +2513,7 @@
                       "value": "0"
                     },
                     "nodeType": "VariableDeclarationStatement",
-                    "src": "1607:10:0"
+                    "src": "1606:10:0"
                   },
                   "loopExpression": {
                     "expression": {
@@ -2526,7 +2526,7 @@
                       "nodeType": "UnaryOperation",
                       "operator": "++",
                       "prefix": false,
-                      "src": "1639:3:0",
+                      "src": "1638:3:0",
                       "subExpression": {
                         "argumentTypes": null,
                         "id": 177,
@@ -2534,7 +2534,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 170,
-                        "src": "1639:1:0",
+                        "src": "1638:1:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -2547,10 +2547,10 @@
                     },
                     "id": 179,
                     "nodeType": "ExpressionStatement",
-                    "src": "1639:3:0"
+                    "src": "1638:3:0"
                   },
                   "nodeType": "ForStatement",
-                  "src": "1602:124:0"
+                  "src": "1601:124:0"
                 }
               ]
             },
@@ -2574,17 +2574,17 @@
               "src": "1591:0:0"
             },
             "scope": 191,
-            "src": "1538:194:0",
+            "src": "1538:193:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
         "scope": 192,
-        "src": "594:1141:0"
+        "src": "594:1140:0"
       }
     ],
-    "src": "1:1735:0"
+    "src": "1:1734:0"
   },
   "legacyAST": {
     "attributes": {
@@ -5103,12 +5103,12 @@
                                 },
                                 "id": 169,
                                 "name": "ElementaryTypeName",
-                                "src": "1607:4:0"
+                                "src": "1606:4:0"
                               }
                             ],
                             "id": 170,
                             "name": "VariableDeclaration",
-                            "src": "1607:6:0"
+                            "src": "1606:6:0"
                           },
                           {
                             "attributes": {
@@ -5125,12 +5125,12 @@
                             },
                             "id": 171,
                             "name": "Literal",
-                            "src": "1616:1:0"
+                            "src": "1615:1:0"
                           }
                         ],
                         "id": 172,
                         "name": "VariableDeclarationStatement",
-                        "src": "1607:10:0"
+                        "src": "1606:10:0"
                       },
                       {
                         "attributes": {
@@ -5159,7 +5159,7 @@
                             },
                             "id": 173,
                             "name": "Identifier",
-                            "src": "1619:1:0"
+                            "src": "1618:1:0"
                           },
                           {
                             "attributes": {
@@ -5185,17 +5185,17 @@
                                 },
                                 "id": 174,
                                 "name": "Identifier",
-                                "src": "1623:7:0"
+                                "src": "1622:7:0"
                               }
                             ],
                             "id": 175,
                             "name": "MemberAccess",
-                            "src": "1623:14:0"
+                            "src": "1622:14:0"
                           }
                         ],
                         "id": 176,
                         "name": "BinaryOperation",
-                        "src": "1619:18:0"
+                        "src": "1618:18:0"
                       },
                       {
                         "children": [
@@ -5223,17 +5223,17 @@
                                 },
                                 "id": 177,
                                 "name": "Identifier",
-                                "src": "1639:1:0"
+                                "src": "1638:1:0"
                               }
                             ],
                             "id": 178,
                             "name": "UnaryOperation",
-                            "src": "1639:3:0"
+                            "src": "1638:3:0"
                           }
                         ],
                         "id": 179,
                         "name": "ExpressionStatement",
-                        "src": "1639:3:0"
+                        "src": "1638:3:0"
                       },
                       {
                         "children": [
@@ -5293,7 +5293,7 @@
                                             },
                                             "id": 180,
                                             "name": "Identifier",
-                                            "src": "1667:7:0"
+                                            "src": "1666:7:0"
                                           },
                                           {
                                             "attributes": {
@@ -5307,17 +5307,17 @@
                                             },
                                             "id": 181,
                                             "name": "Identifier",
-                                            "src": "1675:1:0"
+                                            "src": "1674:1:0"
                                           }
                                         ],
                                         "id": 182,
                                         "name": "IndexAccess",
-                                        "src": "1667:10:0"
+                                        "src": "1666:10:0"
                                       }
                                     ],
                                     "id": 183,
                                     "name": "MemberAccess",
-                                    "src": "1667:30:0"
+                                    "src": "1666:30:0"
                                   },
                                   {
                                     "attributes": {
@@ -5331,47 +5331,47 @@
                                     },
                                     "id": 184,
                                     "name": "Identifier",
-                                    "src": "1698:16:0"
+                                    "src": "1697:16:0"
                                   }
                                 ],
                                 "id": 185,
                                 "name": "FunctionCall",
-                                "src": "1667:48:0"
+                                "src": "1666:48:0"
                               }
                             ],
                             "id": 186,
                             "name": "ExpressionStatement",
-                            "src": "1667:48:0"
+                            "src": "1666:48:0"
                           }
                         ],
                         "id": 187,
                         "name": "Block",
-                        "src": "1653:73:0"
+                        "src": "1652:73:0"
                       }
                     ],
                     "id": 188,
                     "name": "ForStatement",
-                    "src": "1602:124:0"
+                    "src": "1601:124:0"
                   }
                 ],
                 "id": 189,
                 "name": "Block",
-                "src": "1591:141:0"
+                "src": "1591:140:0"
               }
             ],
             "id": 190,
             "name": "FunctionDefinition",
-            "src": "1538:194:0"
+            "src": "1538:193:0"
           }
         ],
         "id": 191,
         "name": "ContractDefinition",
-        "src": "594:1141:0"
+        "src": "594:1140:0"
       }
     ],
     "id": 192,
     "name": "SourceUnit",
-    "src": "1:1735:0"
+    "src": "1:1734:0"
   },
   "compiler": {
     "name": "solc",
@@ -5386,8 +5386,7 @@
     }
   },
   "schemaVersion": "3.4.14",
-  "updatedAt": "2023-07-05T02:32:17.587Z",
-  "networkType": "ethereum",
+  "updatedAt": "2023-07-11T23:11:26.692Z",
   "devdoc": {
     "methods": {}
   },

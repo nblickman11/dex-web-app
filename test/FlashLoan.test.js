@@ -19,6 +19,9 @@ import EthSwapJSONFile from '../src/abis/EthSwap.json';
 // Flash Loan Related Contracts
 const FlashLoan = artifacts.require("FlashLoan");
 
+// Contract Registry Contract
+const ContractRegistry = artifacts.require("ContractRegistry");
+
 // JavaScript test framework.
 require('chai')
 	.use(require('chai-as-promised'))
@@ -48,6 +51,8 @@ contract('FlashLoan', ([deployer, investor]) => {
   let token, nrmToken, narToken, adnToken, whnToken, nkfToken, 
   cihToken, nsrToken, jnToken, ncnToken, ehnToken, jrnToken, jlnToken;
   let flashLoan;
+  let contractRegistry;
+  let tokensAddresses;
 
   before(async () => {
   	// Use Promise.all to make sure all of the tokens deploy before moving on.
@@ -75,7 +80,7 @@ contract('FlashLoan', ([deployer, investor]) => {
     }
 
     try {
-		  const tokensAddresses = [
+		  tokensAddresses = [
 		    token.address,
 		    nrmToken.address,
 		    narToken.address,
@@ -97,6 +102,7 @@ contract('FlashLoan', ([deployer, investor]) => {
     }
 
 	  	flashLoan = await FlashLoan.new(contract.address);
+      contractRegistry = await ContractRegistry.new(flashLoan.address, tokensAddresses);
 
 
 	  /*
@@ -111,7 +117,15 @@ contract('FlashLoan', ([deployer, investor]) => {
   });
 
 	
-  // TESTS
+  /*  
+
+
+    TESTS
+
+
+  */
+
+  // Test the Execute Flash Loan runs, and it's events are emitted.
   describe('FlashLoan()', async() => {
     // Balance of FlashLoan contract for a token
     let flBal = tokens('1000000')
@@ -126,7 +140,7 @@ contract('FlashLoan', ([deployer, investor]) => {
       // Make sure investor has tokens to begin with.
       const ethContractInst = new web3.eth.Contract(
         EthSwapJSONFile.abi, contract.address);
-      await ethContractInst.methods.buyTokens("NTB").send({from: investor, 
+      await ethContractInst.methods.buyTokens(currentToken).send({from: investor, 
         value: web3.utils.toWei('1', 'ether')})
 		})
 
@@ -147,11 +161,41 @@ contract('FlashLoan', ([deployer, investor]) => {
       truffleAssert.eventEmitted(result, 'eventPostFlashLoan', (ev) => {
           return ev[0] == token.address && ev[1] == flBal;
       }, 'Contract should emit the expected event with correct parameters');
-		
     })
-
 	})
 
+
+  // Test the deposit function's modifier enforces access controls.
+  describe('FlashLoan()', async() => {
+    let loanAmount;
+    const currentToken = "NTB";
+
+    before(async() => {
+      loanAmount = tokens('50');
+
+      // Make sure investor has tokens to begin with.
+      const ethContractInst = new web3.eth.Contract(
+        EthSwapJSONFile.abi, contract.address);
+      await ethContractInst.methods.buyTokens(currentToken).send({from: investor, 
+        value: web3.utils.toWei('1', 'ether')})
+    })
+
+    it('Test Deposit Function Modifier Works', async()=> {
+
+      // Below doesn't work.  Token contract doesn't know who the flashLoan 
+      // ...address is.  Only Ganache accounts can be "from"
+      //await token.deposit(loanAmount, investor, contract.address,
+        //{from: flashLoan.address});
+
+      // Case below shouldn't work, need flashLoan.address, not the deployer's.
+      // test makes sure the error is the one we expected.
+      await truffleAssert.reverts(
+          token.deposit(loanAmount, investor, contract.address, {from: deployer}),
+          "Function can only be called by the FlashLoan contract"
+        );
+    })
+
+  })
 
 })
 

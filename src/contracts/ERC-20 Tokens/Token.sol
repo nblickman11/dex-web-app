@@ -15,6 +15,10 @@ contract Token is BaseTokenContract, TokenInterface {
     uint public rate = 100;
 
 
+
+    event LogMessageToken(string);
+
+
     event Transfer(
         address indexed _from,
         address indexed _to,
@@ -52,8 +56,8 @@ contract Token is BaseTokenContract, TokenInterface {
         return symbol;
     }
     
-    function deposit(uint256 _value, address _from, address _to) public
-     onlyFlashLoanContract(msg.sender, flashLoanAddress) returns (bool success)
+    function deposit(uint256 _value, address _from, address _to) public 
+    onlyFlashLoanContract(msg.sender, flashLoanAddress) returns (bool success)
     {
         require(_value <= balanceOf[_from]);
         balanceOf[_from] -= _value;
