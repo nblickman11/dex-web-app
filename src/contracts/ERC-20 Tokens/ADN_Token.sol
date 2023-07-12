@@ -31,7 +31,6 @@ contract ADN_Token is BaseTokenContract, TokenInterface {
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
 
-    // address only needs to be passed here because the parent does it
     constructor() public {
         balanceOf[msg.sender] = totalSupply;
     }
@@ -51,9 +50,9 @@ contract ADN_Token is BaseTokenContract, TokenInterface {
         return symbol;
     }
 
-
-    function deposit(uint256 _value, address _from, address _to) public 
-    onlyFlashLoanContract(msg.sender, flashLoanAddress) returns (bool success)
+    // flashLoanAddress is inherited from BaseTokenContract
+    function deposit(uint256 _value, address _from, address _to) public
+     onlyFlashLoanContract(msg.sender) returns (bool success)
     {
         require(_value <= balanceOf[_from]);
         balanceOf[_from] -= _value;
@@ -61,7 +60,9 @@ contract ADN_Token is BaseTokenContract, TokenInterface {
         return true;
     }
 
-    function transfer(address _to, uint256 _value) public returns (bool success) {
+    function transfer(address _to, uint256 _value) public 
+     fromFlashLoanEthSwapDeployer(msg.sender) returns (bool success) 
+     {   
         require(balanceOf[msg.sender] >= _value); 
         balanceOf[msg.sender] -= _value;
         balanceOf[_to] += _value;

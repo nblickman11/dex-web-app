@@ -19,6 +19,11 @@ import EthSwapJSONFile from '../src/abis/EthSwap.json';
 // Flash Loan Related Contracts
 const FlashLoan = artifacts.require("FlashLoan");
 
+// Contract Registry Contract
+const ContractRegistry = artifacts.require("ContractRegistry");
+
+
+
 // JavaScript test framework.
 require('chai')
 	.use(require('chai-as-promised'))
@@ -37,14 +42,16 @@ function tokens(n) {
 	*/ 
 contract('EthSwap', ([deployer, investor]) => {
   let tokenContracts = [];
+  let tokensAddresses;
   let tokenNames = ["Nelson Blickman", "Nelson Mandela", "Nelson Rockefeller",
    "Alice Nelson", "Willie Nelson", "Nelly Furtado", "Cornell Haynes (Nelly)",
    "Nelson Riddle", "Jameer Nelson", "Novella Nelson", "Eric (Ricky) Nelson",
     "Jordy Nelson", "Jesy Nelson"];
-  let contract; 
+  let contract;
   let token, nrmToken, narToken, adnToken, whnToken, nkfToken, 
   cihToken, nsrToken, jnToken, ncnToken, ehnToken, jrnToken, jlnToken;
   let flashLoan;
+  let contractRegistry;
 
   before(async () => {
   	// Use Promise.all to make sure all of the tokens deploy before moving on.
@@ -72,7 +79,7 @@ contract('EthSwap', ([deployer, investor]) => {
     }
 
     try {
-		  const tokensAddresses = [
+		  tokensAddresses = [
 		    token.address,
 		    nrmToken.address,
 		    narToken.address,
@@ -94,7 +101,8 @@ contract('EthSwap', ([deployer, investor]) => {
     }
 
 	  	flashLoan = await FlashLoan.new(contract.address);
-
+      contractRegistry = await ContractRegistry.new(flashLoan.address, contract.address,
+       tokensAddresses);
 
 	  /*
       - "deployer" sends it's token supply (it got from Token.sol on initialization)

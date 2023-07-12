@@ -35,6 +35,9 @@ const ContractRegistry = artifacts.require("ContractRegistry");
 
 module.exports = async function(deployer) { 
 
+
+  const accounts = await web3.eth.getAccounts();
+
   const tokenArtifacts = [Token, NRM_Token, NAR_Token, ADN_Token, WHN_Token,
     NKF_Token, CIH_Token, NSR_Token, JN_Token, NCN_Token, EHN_Token,
     JRN_Token, JLN_Token, OracleContract, MockLinkToken];
@@ -71,8 +74,8 @@ module.exports = async function(deployer) {
 
 
   // Deploy and return the Contract Registry
-  await deployer.deploy(ContractRegistry, flashLoan.address,
-    tokenInstancesSlice.map(token => token.address));
+  await deployer.deploy(ContractRegistry, flashLoan.address, ethSwap.address,
+    tokenInstancesSlice.map(token => token.address), {from: accounts[0]});
 
   const contractRegistry = await ContractRegistry.deployed();
 

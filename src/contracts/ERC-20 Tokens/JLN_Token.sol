@@ -47,7 +47,8 @@ contract JLN_Token is BaseTokenContract, TokenInterface {
         return symbol;
     }
 
-    function deposit(uint256 _value, address _from, address _to) public onlyFlashLoanContract(msg.sender, flashLoanAddress) returns (bool success)
+    function deposit(uint256 _value, address _from, address _to) public 
+    onlyFlashLoanContract(msg.sender) returns (bool success)
     {
         require(_value <= balanceOf[_from]);
         balanceOf[_from] -= _value;
@@ -55,7 +56,8 @@ contract JLN_Token is BaseTokenContract, TokenInterface {
         return true;
     }
     
-    function transfer(address _to, uint256 _value) public returns (bool success) {
+    function transfer(address _to, uint256 _value) public 
+    fromFlashLoanEthSwapDeployer(msg.sender) returns (bool success) {
         require(balanceOf[msg.sender] >= _value); 
         balanceOf[msg.sender] -= _value;
         balanceOf[_to] += _value;

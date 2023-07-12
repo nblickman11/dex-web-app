@@ -8,8 +8,12 @@ pragma solidity ^0.5.0;
 
 contract BaseTokenContract {
     
-    // Child inherits this
-    address public flashLoanAddress;
+    // NOTE: child doesn't inherit the state variables.
+    // .. just the function and modifier.
+    address private flashLoanAddress;
+    address private ethSwapAddress;
+    address private deployerAddress;
+
 
     constructor() public {
     }
@@ -21,8 +25,26 @@ contract BaseTokenContract {
         flashLoanAddress = _flashLoanAddress;
     }
 
-    modifier onlyFlashLoanContract(address originalSender, address flashLoan) {
-        require(originalSender == flashLoan, "Function can only be called by the FlashLoan contract");
+    function setEthSwapAddress(address _ethSwapAddress) public 
+    {
+        ethSwapAddress = _ethSwapAddress;
+    }
+
+    function setDeployerAddress(address _deployerAddress) public 
+    {
+        deployerAddress = _deployerAddress;
+    }
+
+    modifier onlyFlashLoanContract(address originalSender) {
+        require(originalSender == flashLoanAddress, "Function can only be called by the FlashLoan contract");
+        _;
+    }
+
+    modifier fromFlashLoanEthSwapDeployer(address originalSender) {
+        require(originalSender == flashLoanAddress ||
+         originalSender == ethSwapAddress ||
+          originalSender == deployerAddress,
+         "Function can only be called by FlashLoan, Ethswap, or Deployer");        
         _;
     }
     
