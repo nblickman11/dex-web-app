@@ -33,12 +33,10 @@ import OracleClient from '../abis/OracleClient.json';
 // Import logo
 import blockLogo from '../Images/Block.jpg';
 
-
 class App extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       account: '',
       tokenContracts: [],
@@ -57,63 +55,76 @@ class App extends Component {
     };
   }
 
+  /* Define and return() the code */
   render() {
-
     const { history } = this.props;
-
     let content;
+    
     if (this.state.loading) {
+      // Show loading message if data is being loaded
       content = <p id="loader" className="text-center">Loading...</p>;
     } else {
-      content = <Main
-        reloadBCData={this.reloadBCData}
-        tokenBalanceMapping={this.state.tokenBalanceMapping}
-        symbolRateMapping={this.state.symbolRateMapping}
-        symbolTempMapping={this.state.symbolTempMapping}
-        symbolNameMapping={this.state.symbolNameMapping}
-        symbolBirthPlaceMapping={this.state.symbolBirthPlaceMapping}
-        ethBalance={this.state.ethBalance}
-        buyTokens={this.buyTokens}
-        sellTokens={this.sellTokens}
+      // Pass props to main, and render the main component.
+      content = 
+        <Main
+          reloadBCData={this.reloadBCData}
+          tokenBalanceMapping={this.state.tokenBalanceMapping}
+          symbolRateMapping={this.state.symbolRateMapping}
+          symbolTempMapping={this.state.symbolTempMapping}
+          symbolNameMapping={this.state.symbolNameMapping}
+          symbolBirthPlaceMapping={this.state.symbolBirthPlaceMapping}
+          ethBalance={this.state.ethBalance}
+          buyTokens={this.buyTokens}
+          sellTokens={this.sellTokens}
       />;
     }
 
-
-    // "this.state.account" is passed as prop to Navbar.
+    {/* Return the code to the UI */}
     return (
       <div>
+        {/* Return the Navbar component */}
         <Navbar account={this.state.account} />
+        
+    {/* The Logo Block on the Left */}
         <div className="container-fluid mt-5">
           <div className="row">
-
+            {/* Display the Block logo if loading is complete */}
             {!this.state.loading && this.state.showBlockLogo && (
               <div className="col-lg-1">
                 <img src={blockLogo} alt="Block Logo" className="block-logo" />
+                {/* Return it's the blocks content. */}
                 <div className="block-text">
                   <p className="more-features">More Features</p>
-                  <Link to="/flashloan" className="flash-loan-link" onClick={this.handleFlashLoanClick}>
+                  {/* Links in the Block */}
+                  <Link to="/flashloan" className="block-logo-links" onClick={this.handleFlashLoanClick}>
+                    Provide a Flash Loan
+                  </Link>
+                  <Link to="/charity" className="block-logo-links" onClick={this.handleFlashLoanClick}>
                     Provide a Flash Loan
                   </Link>
                 </div>
               </div>
             )}
 
+    {/* Return the content from "/Main" */}
             <main role="main" className="col-lg-5 ml-auto mr-auto"
               style={{maxWidth: '600px'}}>
               <div className="content mr-auto ml-auto">
-                
                 <Routes>
                   <Route path="/" element={content} exact />
+                  
+    {/* Return the content from "/FlashLoanMain" */}
                   <Route
-                    path="/flashloan" element={<FlashLoanMain
-                     backToMain={this.backToMain}
-                     tokenBalanceMapping={this.state.tokenBalanceMapping}
-                     executeFlashLoan={this.executeFlashLoan}
-                     reloadBCData={this.reloadBCData}
-                     />}
+                    path="/flashloan" 
+                      element={
+                        <FlashLoanMain
+                          backToMain={this.backToMain}
+                          tokenBalanceMapping={this.state.tokenBalanceMapping}
+                          executeFlashLoan={this.executeFlashLoan}
+                          reloadBCData={this.reloadBCData} 
+                        />}
                   />
                 </Routes>
-
               </div>
             </main>
 
@@ -125,11 +136,11 @@ class App extends Component {
 
   // Call back function.
   backToMain = () => {
-    this.setState({ showBlockLogo: true });
+    this.setState({showBlockLogo: true});
   }
 
   handleFlashLoanClick = () => {    
-    this.setState({ showBlockLogo: false });
+    this.setState({showBlockLogo: false});
   };
 
   /**
@@ -140,8 +151,6 @@ class App extends Component {
     await this.loadBlockchainData();
   }
 
-
-  // 
   // Loads the web3 instance to connect to MetaMask.
   // "window" is a global JS object that represents the browser.
   //  When MetaMask is injected into browser, it makes the .ethereum
@@ -165,12 +174,10 @@ class App extends Component {
     }
   }
 
-
   async loadBlockchainData() {
     
     // Store our provider into a single variable.
     const web3 = window.web3;
-    
 
     // Return the MetaMask accounts
     const accounts = await web3.eth.getAccounts();
@@ -189,7 +196,6 @@ class App extends Component {
 
     // Return Ganache node network ID.
     const networkId = await web3.eth.net.getId();
-
 
     // Pull deployment data out of the Exchange's abi
     const ethSwapData = EthSwap.networks[networkId];

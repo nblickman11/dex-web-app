@@ -1,0 +1,540 @@
+{
+  "contractName": "ReentrancyAttack",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_charityPool",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "charityPool",
+      "outputs": [
+        {
+          "internalType": "contract CharityPool",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_charityPool\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[],\"name\":\"charityPool\",\"outputs\":[{\"internalType\":\"contract CharityPool\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/Hack And Charity Pool/ReentrancyAttack.sol\":\"ReentrancyAttack\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/Hack And Charity Pool/CharityPool.sol\":{\"keccak256\":\"0x9aa27b21ae530ff9b4435cfd4c1a3f923542cd2b25b7e5139b33af9681e53e40\",\"urls\":[\"bzz-raw://2b53eb85bae817d8214fb83709f64a7254f4efa149d2e11122ea59ba84864737\",\"dweb:/ipfs/QmUsPuwMcfPzDZ1Jyzc626sqaZRGECHCPZ2q8U9GX699QN\"]},\"project:/src/contracts/Hack And Charity Pool/ReentrancyAttack.sol\":{\"keccak256\":\"0x96e8515dbe64c4d3dc9d67009ab1f3a64f07a3e3a99bc64e956cd9ec6ab3a452\",\"urls\":[\"bzz-raw://140361ea7a7b7b728ca26052794c96e0b9d44962ff16e3eb8efdd53b544b024c\",\"dweb:/ipfs/QmXzfUXn6Ba3MjDmnKVqywGniMSoNQTsVYCvDcPjWFJBqR\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516101623803806101628339818101604052602081101561003357600080fd5b8101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060cf806100936000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80638f856eab14602d575b600080fd5b60336075565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a723158206462e46d66f4e1cf33c184f50e8e748062a560bea72b48f2d71e53acc8e3b66c64736f6c63430005100032",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c80638f856eab14602d575b600080fd5b60336075565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a723158206462e46d66f4e1cf33c184f50e8e748062a560bea72b48f2d71e53acc8e3b66c64736f6c63430005100032",
+  "sourceMap": "56:172:2:-;;;127:97;8:9:-1;5:2;;;30:1;27;20:12;5:2;127:97:2;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;127:97:2;;;;;;;;;;;;;;;;204:12;178:11;;:39;;;;;;;;;;;;;;;;;;127:97;56:172;;;;;;",
+  "deployedSourceMap": "56:172:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;56:172:2;;;;;;;;;;;;;;;;;;;90:30;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "\npragma solidity ^0.5.0;\n\n\nimport './CharityPool.sol';\n\ncontract ReentrancyAttack {\n\n\n    CharityPool public charityPool;\n\n    constructor(address _charityPool) public {\n        charityPool = CharityPool(_charityPool);\n    }\n\n\n}\n\n\n// contract MaliciousContract {\n//     Crowdfunding public crowdfunding;\n\n//     constructor(address _crowdfundingAddress) {\n//         crowdfunding = Crowdfunding(_crowdfundingAddress);\n//     }\n\n//     fallback() external payable {\n//         if (address(crowdfunding).balance >= 1 ether) {\n//             crowdfunding.withdraw(1 ether);\n//         }\n//     }\n\n//     function initiateAttack() public {\n//         crowdfunding.withdraw(1 ether);\n//     }\n\n//     function getBalance() public view returns (uint) {\n//         return address(this).balance;\n//     }\n// }\n",
+  "sourcePath": "/Users/Nelson/Desktop/DEX-web-app/src/contracts/Hack And Charity Pool/ReentrancyAttack.sol",
+  "ast": {
+    "absolutePath": "project:/src/contracts/Hack And Charity Pool/ReentrancyAttack.sol",
+    "exportedSymbols": {
+      "ReentrancyAttack": [
+        124
+      ]
+    },
+    "id": 125,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 108,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "1:23:2"
+      },
+      {
+        "absolutePath": "project:/src/contracts/Hack And Charity Pool/CharityPool.sol",
+        "file": "./CharityPool.sol",
+        "id": 109,
+        "nodeType": "ImportDirective",
+        "scope": 125,
+        "sourceUnit": 58,
+        "src": "27:27:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 124,
+        "linearizedBaseContracts": [
+          124
+        ],
+        "name": "ReentrancyAttack",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 111,
+            "name": "charityPool",
+            "nodeType": "VariableDeclaration",
+            "scope": 124,
+            "src": "90:30:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_CharityPool_$57",
+              "typeString": "contract CharityPool"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 110,
+              "name": "CharityPool",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 57,
+              "src": "90:11:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_CharityPool_$57",
+                "typeString": "contract CharityPool"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 122,
+              "nodeType": "Block",
+              "src": "168:56:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 120,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 116,
+                      "name": "charityPool",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 111,
+                      "src": "178:11:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_CharityPool_$57",
+                        "typeString": "contract CharityPool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 118,
+                          "name": "_charityPool",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 113,
+                          "src": "204:12:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 117,
+                        "name": "CharityPool",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 57,
+                        "src": "192:11:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_CharityPool_$57_$",
+                          "typeString": "type(contract CharityPool)"
+                        }
+                      },
+                      "id": 119,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "192:25:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_CharityPool_$57",
+                        "typeString": "contract CharityPool"
+                      }
+                    },
+                    "src": "178:39:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_CharityPool_$57",
+                      "typeString": "contract CharityPool"
+                    }
+                  },
+                  "id": 121,
+                  "nodeType": "ExpressionStatement",
+                  "src": "178:39:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 123,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 114,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 113,
+                  "name": "_charityPool",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 123,
+                  "src": "139:20:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 112,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "139:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "138:22:2"
+            },
+            "returnParameters": {
+              "id": 115,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "168:0:2"
+            },
+            "scope": 124,
+            "src": "127:97:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 125,
+        "src": "56:172:2"
+      }
+    ],
+    "src": "1:801:2"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/src/contracts/Hack And Charity Pool/ReentrancyAttack.sol",
+      "exportedSymbols": {
+        "ReentrancyAttack": [
+          124
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.5",
+            ".0"
+          ]
+        },
+        "id": 108,
+        "name": "PragmaDirective",
+        "src": "1:23:2"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 58,
+          "absolutePath": "project:/src/contracts/Hack And Charity Pool/CharityPool.sol",
+          "file": "./CharityPool.sol",
+          "scope": 125,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 109,
+        "name": "ImportDirective",
+        "src": "27:27:2"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            124
+          ],
+          "name": "ReentrancyAttack",
+          "scope": 125
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "charityPool",
+              "scope": 124,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract CharityPool",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "CharityPool",
+                  "referencedDeclaration": 57,
+                  "type": "contract CharityPool"
+                },
+                "id": 110,
+                "name": "UserDefinedTypeName",
+                "src": "90:11:2"
+              }
+            ],
+            "id": 111,
+            "name": "VariableDeclaration",
+            "src": "90:30:2"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "scope": 124,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_charityPool",
+                      "scope": 123,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 112,
+                        "name": "ElementaryTypeName",
+                        "src": "139:7:2"
+                      }
+                    ],
+                    "id": 113,
+                    "name": "VariableDeclaration",
+                    "src": "139:20:2"
+                  }
+                ],
+                "id": 114,
+                "name": "ParameterList",
+                "src": "138:22:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 115,
+                "name": "ParameterList",
+                "src": "168:0:2"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "contract CharityPool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 111,
+                              "type": "contract CharityPool",
+                              "value": "charityPool"
+                            },
+                            "id": 116,
+                            "name": "Identifier",
+                            "src": "178:11:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "contract CharityPool",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 57,
+                                  "type": "type(contract CharityPool)",
+                                  "value": "CharityPool"
+                                },
+                                "id": 117,
+                                "name": "Identifier",
+                                "src": "192:11:2"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 113,
+                                  "type": "address",
+                                  "value": "_charityPool"
+                                },
+                                "id": 118,
+                                "name": "Identifier",
+                                "src": "204:12:2"
+                              }
+                            ],
+                            "id": 119,
+                            "name": "FunctionCall",
+                            "src": "192:25:2"
+                          }
+                        ],
+                        "id": 120,
+                        "name": "Assignment",
+                        "src": "178:39:2"
+                      }
+                    ],
+                    "id": 121,
+                    "name": "ExpressionStatement",
+                    "src": "178:39:2"
+                  }
+                ],
+                "id": 122,
+                "name": "Block",
+                "src": "168:56:2"
+              }
+            ],
+            "id": 123,
+            "name": "FunctionDefinition",
+            "src": "127:97:2"
+          }
+        ],
+        "id": 124,
+        "name": "ContractDefinition",
+        "src": "56:172:2"
+      }
+    ],
+    "id": 125,
+    "name": "SourceUnit",
+    "src": "1:801:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x83AC98dcbA85390Af2a8a00cD797B6aebAdB0017",
+      "transactionHash": "0xf9c17744f0a070c214235c930c15a746bc9031630e29713ce820fc45bd3e9018"
+    }
+  },
+  "schemaVersion": "3.4.14",
+  "updatedAt": "2023-07-14T20:13:23.841Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

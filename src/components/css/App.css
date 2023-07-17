@@ -80,12 +80,12 @@
   width: 300px;
 }
 
-.flash-loan-link {
+.block-logo-links {
   color: black;
   text-decoration: none;
 }
 
-.flash-loan-link:hover {
+.block-logo-links:hover {
   text-decoration: underline;
 }
 

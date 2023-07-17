@@ -22,6 +22,11 @@ const OracleClient = artifacts.require("OracleClient");
 const OracleContract = artifacts.require("OracleContract");
 const MockLinkToken = artifacts.require("MockLinkToken");
 
+// Charity Related Contracts
+const CharityPool = artifacts.require("CharityPool");
+const ContributionsAndWithdrawals = artifacts.require("ContributionsAndWithdrawals");
+const ReentrancyAttack = artifacts.require("ReentrancyAttack");
+
 // Flash Loan Related Contracts
 const FlashLoan = artifacts.require("FlashLoan");
 
@@ -51,27 +56,31 @@ module.exports = async function(deployer) {
       tokenInstances.push(tokenInstance);
   }
 
-  // Deploy the EthSwap contract artifact and the addresses it talks to.  
+  // Deploy the EthSwap contract and return it's instance 
   const tokenInstancesSlice = tokenInstances.slice(0, 13);
   await deployer.deploy(EthSwap, tokenInstancesSlice.map(token => token.address));
+  const ethSwap = await EthSwap.deployed() //Grab ethSwap contract inst.
 
-  // Deploy Oracle client and the addresses it talks to.
+
+  // Deploy and return instances of Charity related contracts.
+  await deployer.deploy(CharityPool)
+  const charityPool = await CharityPool.deployed();
+  await deployer.deploy(ContributionsAndWithdrawals, charityPool.address)
+  await deployer.deploy(ReentrancyAttack, charityPool.address)
+
+
+  // Deploy Oracle client and the addresses it talks to, and return it's instance.
   await deployer.deploy(OracleClient, tokenInstances[13].address, 
     tokenInstances[14].address)
+  const oracleClient = await OracleClient.deployed();
 
   // Deploy Flash Loan and the address it talks to.
-  const ethSwap = await EthSwap.deployed() //Grab ethSwap contract inst.
   await deployer.deploy(FlashLoan, ethSwap.address)
-
-
-  // Return the oracleClient and flashLoan contract instance
-  const oracleClient = await OracleClient.deployed();
   const flashLoan = await FlashLoan.deployed();
 
   // Deploy and return the BaseTokenContract
   await deployer.deploy(BaseTokenContract);
   const baseTokenContract = await BaseTokenContract.deployed();
-
 
   // Deploy and return the Contract Registry
   await deployer.deploy(ContractRegistry, flashLoan.address, ethSwap.address,
