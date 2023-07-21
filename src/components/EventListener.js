@@ -6,6 +6,7 @@ const contractArtifact2 = require('../abis/OracleClient.json');
 const artifactFlashLoan = require('../abis/FlashLoan.json');
 const artifactBaseToken = require('../abis/BaseTokenContract.json');
 const artifactADNToken = require('../abis/ADN_Token.json');
+const artifactCharityPool = require('../abis/CharityPool.json');
 
 
 
@@ -141,7 +142,19 @@ if (window.ethereum) {
 
 
 
+  // Retrieve the contract address from the artifact file
+  const addressCharityPool = artifactCharityPool.networks['5777'].address;
 
+  // Create a contract instance
+  const charityPoolABI = artifactCharityPool.abi;
+  const charityPool = new web3.eth.Contract(charityPoolABI, addressCharityPool);
+
+  const charityMSG = charityPool.events.Values();
+  charityMSG.on('data', (event) => {
+    const values = event.returnValues;
+    console.log('charityMSG:', values);
+  });
+  charityMSG.on('error', console.error);
 
 
 }

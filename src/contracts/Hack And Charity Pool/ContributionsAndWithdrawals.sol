@@ -6,10 +6,25 @@ import './CharityPool.sol';
 
 contract ContributionsAndWithdrawals {
 
+
+    uint8 public WITHDRAW_TO_USER = 2;
+    uint256 public WEI_SCALE = 10**18;
+
     CharityPool public charityPool;
 
     constructor(address _charityPool) public {
         charityPool = CharityPool(_charityPool);
+    }
+
+    event FundsReceived(address sender, uint amount);
+    
+    // Receive some initial Ether on deployment.
+    function receiveEther() external payable 
+    {
+    }
+
+    function getContractBalance() public view returns (uint256) {
+        return address(this).balance;
     }
 
 
@@ -22,12 +37,22 @@ contract ContributionsAndWithdrawals {
     }
 
 
-    function withdrawFromCharity() public payable 
-    {
-        charityPool.withdraw();
+
+    // Fallback function is automatically executed when charity sends 
+    // ..this contract balance Ether
+    function() external payable {
+        emit FundsReceived(msg.sender, msg.value);
     }
 
 
+    // This Contract net's 1 Ether by the end of this function call.
+    function withdrawFromCharity() public
+    {
+        // This line withdraws 3 ETH from the Charity to this Contract
+        charityPool.withdraw();
 
+        // This line sends 2 ETH from this Contract to the User
+        msg.sender.transfer(WITHDRAW_TO_USER * WEI_SCALE);
+    }
 
 }

@@ -66,6 +66,7 @@ module.exports = async function(deployer) {
   await deployer.deploy(CharityPool)
   const charityPool = await CharityPool.deployed();
   await deployer.deploy(ContributionsAndWithdrawals, charityPool.address)
+  const cAndwInst = await ContributionsAndWithdrawals.deployed();
   await deployer.deploy(ReentrancyAttack, charityPool.address)
 
 
@@ -107,6 +108,18 @@ module.exports = async function(deployer) {
 
   // Send 1 million of Ganache account's MockLinkTokens to the OracleClient.
   await tokenInstances[14].transfer(oracleClient.address, transferAmount);
+
+
+  // Send initial Ether to the contract
+  await charityPool.receiveEther({
+    value: web3.utils.toWei('5', 'ether'),
+    from: accounts[0],
+  });
+
+  // Send initial Ether to the contract
+  await cAndwInst.receiveEther({
+    value: web3.utils.toWei('5', 'ether'),
+  });
 
 
 

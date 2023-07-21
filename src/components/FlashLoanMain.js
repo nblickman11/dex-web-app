@@ -49,14 +49,22 @@ class FlashLoanMain extends Component {
   }
 
   render() {
-
-  	  const tokenList = Object.keys(this.state.tokenInfo);
+  	const tokenList = Object.keys(this.state.tokenInfo);
 
 	  return (
 
-		  <form
-	        className="mb-3"
-	        onSubmit={(event) => {
+	  <>
+{/* Back to Main Button */}
+      <div className="back-button-container">
+        <Link to="/" className="back-button" onClick={this.props.backToMain}>
+          Back to Main App
+        </Link>
+      </div>
+
+		  <form className="mb-3"    
+// When form submitted (Button is clicked) we confirm the input is
+// .. valid and then call the executeFlashLoan() on the BC.
+	        onSubmit={(event) => {	        
 	          event.preventDefault();
 	          if (this.state.currentToken == "SELECT") {
             	alert('First select which token you want to lend!');
@@ -67,9 +75,7 @@ class FlashLoanMain extends Component {
 	            	window.alert("Your amount is empty or invalid!");
 	            	return; // Exit the function here
 	            }
-
 							let tokenAmount = window.web3.utils.toWei(loanAmount, 'Ether');
-					
 	            if (parseInt(tokenAmount) > parseInt(this.props.tokenBalanceMapping[this.state.currentToken].toString())){
 	            		window.alert("You don't have that many tokens to loan!");
 	          	}
@@ -82,98 +88,91 @@ class FlashLoanMain extends Component {
 	      >
 
 	    <div>
-
-	      <div className="back-button-container">
-	        <Link to="/" className="back-button" onClick={this.props.backToMain}>
-	          Back to Main App
-	        </Link>
-	      </div>
+	   {/* Lightning Logo */}
 	      <div className="logo-container">
 	        <img src={flashLogo} alt="Flash Logo" className="flash-logo" />
 	      </div>
 		
+		{/* RED BOX CONTAINER */}
+				<div className="flashloan-container" style={{ backgroundColor: 'red', border: '3px solid black', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+				  
+				  <div style={{ marginTop: '20px' }}>
+				    <span style={{ color: 'yellow', fontSize: 'x-large', fontWeight: 'bold', textDecoration: 'underline' }}>
+				      Earn Interest Now! 
+				    </span>
+				  </div>
+				  <div style={{ marginTop: '50px' }}>
+				    {/* Input label and balance */}
+				    <label style={{ fontWeight: 'bold', marginRight: '120px'}}>
+				      <b>Loan Amount:&nbsp;&nbsp;&nbsp;&nbsp;</b>
+				    </label>
+						<span style={{ fontWeight: 'bold'}} className="float-right text-muted black-text">
+						  Balance: {parseFloat(window.web3.utils.fromWei(this.props.tokenBalanceMapping[
+						    this.state.currentToken].toString(), 'Ether')).toFixed(2)}
+						</span>
+				  </div>
 
-			{/* RED BOX CONTAINER */}
-			<div className="flashloan-container" style={{ backgroundColor: 'red', border: '3px solid black', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-			  <div style={{ marginTop: '20px' }}>
-			    <span style={{ color: 'yellow', fontSize: 'x-large', fontWeight: 'bold', textDecoration: 'underline' }}>
-			      Earn Interest Now! 
-			    </span>
-			  </div>
-
-			  <div style={{ marginTop: '50px' }}>
-			    {/* Input label and balance */}
-			    <label style={{ fontWeight: 'bold', marginRight: '120px'}}>
-			      <b>Loan Amount:&nbsp;&nbsp;&nbsp;&nbsp;</b>
-			    </label>
-
-					<span style={{ fontWeight: 'bold'}} className="float-right text-muted black-text">
-					  Balance: {parseFloat(window.web3.utils.fromWei(this.props.tokenBalanceMapping[
-					    this.state.currentToken].toString(), 'Ether')).toFixed(2)}
-					</span>
-			  </div>
-
-			  <div style={{ marginTop: '10px' }}>
-			  	<div className="input-group">
-	  				
-
-					 {this.state.currentToken === 'SELECT' ? (
-					            <input
-					              type="text"
-					              className="form-control form-control-lg"
-					              placeholder="Select a Token to Lend!"
-					              disabled
-					            />
-					          ) : (
-					  				<input 
-					  					type="text" 
-					  					ref={(input) => {
-				              			this.input = input;
-				            			}}
-				            	value = {this.state.loanAmount}
-				            	onChange={(event) => {
-      									this.setState({loanAmount: event.target.value});
-    									}}
-					  					style={{ backgroundColor: 'yellow', color: 'black', padding: '5px', borderRadius: '5px', width: '250px' }} 
-					  					/>)}
-	
-					 		<div className="input-group-append">  
-			            {/* TOKEN DROPDOWN */}
-			            <div className="btn-group">		
-			              <button
-			                type="button"
-			                className="btn btn-outline-secondary dropdown-toggle"
-			                data-toggle="dropdown"
-			                aria-haspopup="true"
-			                aria-expanded="false"
-			                style={{ backgroundColor: 'yellow' }}>
-
-			                <img src={this.state.tokenInfo[this.state.currentToken].logo} height="32" alt="Token Logo" />
-			                &nbsp; <span style={{ color: 'black' }}>{this.state.currentToken}</span>
-			            
-			              </button>
-			              
-			              <div className="dropdown-menu token-scrollable-menu">
-			                {tokenList.slice(1).map((token) => (
-			                  <a
-			                    key={token}
-			                    className="dropdown-item"
-			                    href="#"
-			                    onClick={() => {
-			                     this.setState({ currentToken: token });
-			                   }}
-			                  >
-			                    <img src={this.state.tokenInfo[token].logo} height="40" alt={`${token} Logo`} />
-			                    &nbsp; {token}
-			                  </a>
-			                ))}
-			             </div>
-			            </div> {/* this div ends the button group*/}
-			        </div>
-
+		{/* INPUT BOX INSIDE RED BOX CONTAINER */}
+				  <div style={{ marginTop: '10px' }}>
+				  	
+						{/* Input Box */}
+				  	<div className="input-group">
+						 {this.state.currentToken === 'SELECT' ? (
+						            <input
+						              type="text"
+						              className="form-control form-control-lg"
+						              placeholder="Select a Token to Lend!"
+						              disabled
+						            />
+						          ) : (
+						  				<input 
+						  					type="text" 
+						  					ref={(input) => {
+					              			this.input = input;
+					            			}}
+					            	value = {this.state.loanAmount}
+					            	onChange={(event) => {
+	      									this.setState({loanAmount: event.target.value});
+	    									}}
+						  					style={{ backgroundColor: 'yellow', color: 'black', padding: '5px', borderRadius: '5px', width: '250px' }} 
+						  					/>)}
+						            
+								{/* TOKEN DROPDOWN */}
+						 		<div className="input-group-append">  
+				            <div className="btn-group">		
+				              <button
+				                type="button"
+				                className="btn btn-outline-secondary dropdown-toggle"
+				                data-toggle="dropdown"
+				                aria-haspopup="true"
+				                aria-expanded="false"
+				                style={{ backgroundColor: 'yellow' }}>
+				                <img src={this.state.tokenInfo[this.state.currentToken].logo} height="32" alt="Token Logo" /> &nbsp; 
+				                <span style
+				                	={{ color: 'black' }}>{this.state.currentToken}
+				                </span>
+				              </button>
+				              <div className="dropdown-menu token-scrollable-menu">
+				                {tokenList.slice(1).map((token) => (
+				                  <a
+				                    key={token}
+				                    className="dropdown-item"
+				                    href="#"
+				                    onClick={() => {
+				                     this.setState({currentToken: token});
+				                   }}
+				                  >
+				                    <img src={this.state.tokenInfo[token].logo} height="40" alt={`${token} Logo`} />
+				                    &nbsp; {token}
+				                  </a>
+				                ))}
+				             </div>
+				            </div> {/* this div ends the button group*/}
+				        </div>
 		        </div>
 			  </div>
 
+			  {/* SUBMIT BUTTON INSIDE RED BOX CONTAINER */}
 			  <div style={{marginTop: 'auto', marginBottom: '20px'}}>
 			    <button type="submit" className="btn btn-primary btn-block btn-lg">
 			      SEND FLASH LOAN!
@@ -182,14 +181,14 @@ class FlashLoanMain extends Component {
 			</div>
 	    </div>
 
+			 {/* Logo of Flash */}
       <div className="logos-container">
         <img src={flashHimselfLogo} alt="Flash" className="flash-himself" />
       </div>
 
-
       </form>
 
-
+			</>
 
     	);
 	}

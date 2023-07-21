@@ -5,16 +5,19 @@ import Web3 from 'web3';
 
 import {Link, Route, Routes, Switch} from 'react-router-dom';
 
-
 // Import code from below files.
 import Navbar from './Navbar';
 import Main from './Main';
 import FlashLoanMain from './FlashLoanMain';
+import Charity from './Charity';
 import EthSwap from '../abis/EthSwap.json';
 import FlashLoan from '../abis/FlashLoan.json';
+import ContributionsAndWithdrawals from '../abis/ContributionsAndWithdrawals.json';
+import CharityPool from '../abis/CharityPool.json';
+import ReentrancyAttack from '../abis/ReentrancyAttack.json';
 import './css/App.css';
 
-// Import abi files
+// Import abi file object
 import Token from '../abis/Token.json';
 import NRM_Token from '../abis/NRM_Token.json';
 import NAR_Token from '../abis/NAR_Token.json';
@@ -48,7 +51,14 @@ class App extends Component {
       symbolInstanceMapping: {},
       ethSwap: {},
       flashLoan: {},
+      contributionsAndWithdrawals: {},
+      charityPool: {},
+      reentrancyAttack: {},
       ethBalance: '0',
+      contributionsAndWithdrawalsBalance: '0',
+      charityBalance: '0',
+      reentrancyAttackBalance: '0',
+      contributeRejected: false,
       // loading: we are waiting for data to be fetched. Load completes before render content to the page.
       loading: true,
       showBlockLogo: true,
@@ -57,7 +67,7 @@ class App extends Component {
 
   /* Define and return() the code */
   render() {
-    const { history } = this.props;
+    const {history} = this.props;
     let content;
     
     if (this.state.loading) {
@@ -92,15 +102,17 @@ class App extends Component {
             {!this.state.loading && this.state.showBlockLogo && (
               <div className="col-lg-1">
                 <img src={blockLogo} alt="Block Logo" className="block-logo" />
-                {/* Return it's the blocks content. */}
+            {/* Return it's the blocks content. */}
                 <div className="block-text">
                   <p className="more-features">More Features</p>
-                  {/* Links in the Block */}
-                  <Link to="/flashloan" className="block-logo-links" onClick={this.handleFlashLoanClick}>
+            {/* Links in the Block */}
+                  <Link to="/flashloan" className="block-logo-links" onClick={this.removeBlockLogo}>
                     Provide a Flash Loan
                   </Link>
-                  <Link to="/charity" className="block-logo-links" onClick={this.handleFlashLoanClick}>
-                    Provide a Flash Loan
+                  <br />
+                  <br />
+                  <Link to="/charity" className="block-logo-links" onClick={this.removeBlockLogo}>
+                    Charities and Hacks
                   </Link>
                 </div>
               </div>
@@ -113,7 +125,8 @@ class App extends Component {
                 <Routes>
                   <Route path="/" element={content} exact />
                   
-    {/* Return the content from "/FlashLoanMain" */}
+    {/* When the path "/flashloan" is matched, the FlashLoanMain component
+     is rendered. The component is passed several props */}
                   <Route
                     path="/flashloan" 
                       element={
@@ -124,10 +137,27 @@ class App extends Component {
                           reloadBCData={this.reloadBCData} 
                         />}
                   />
+    {/* When the path "/charity" is matched */}
+                  <Route
+                    path="/charity" 
+                      element={
+                        <Charity
+                          backToMain={this.backToMain}
+                          tokenBalanceMapping={this.state.tokenBalanceMapping}
+                          reloadBCData={this.reloadBCData} 
+                          ethBalance={this.state.ethBalance}
+                          cANDwBalance={this.state.contributionsAndWithdrawalsBalance}
+                          charityBalance={this.state.charityBalance}
+                          reentrancyAttackBalance={this.state.reentrancyAttackBalance}
+                          contributeToCharity={this.contributeToCharity}
+                          withdrawFromCharity={this.withdrawFromCharity}
+                          initiateAttackFunction={this.initiateAttackFunction}
+                          contributeRejected={this.state.contributeRejected}
+                        />}
+                  />
                 </Routes>
               </div>
             </main>
-
           </div>
         </div>
       </div>
@@ -139,7 +169,7 @@ class App extends Component {
     this.setState({showBlockLogo: true});
   }
 
-  handleFlashLoanClick = () => {    
+  removeBlockLogo = () => {    
     this.setState({showBlockLogo: false});
   };
 
@@ -149,6 +179,13 @@ class App extends Component {
   async componentDidMount() {
     await this.loadWeb3();
     await this.loadBlockchainData();
+
+
+    // If the built-in browser's back button is hit.
+    // window.onpopstate = () => {
+    //     this.backToMain();
+    // };
+
   }
 
   // Loads the web3 instance to connect to MetaMask.
@@ -172,6 +209,11 @@ class App extends Component {
     } catch (error) {
         console.error(error);
     }
+  }
+
+  // Callback function
+  reloadBCData = () => {
+    this.loadBlockchainData();
   }
 
   async loadBlockchainData() {
@@ -218,6 +260,41 @@ class App extends Component {
     } else {
       window.alert('FlashLoan contract not deployed to detected network.');
     }
+
+    // Do the same for charity related contracts.
+    const contributionsAndWithdrawalsData = ContributionsAndWithdrawals.networks[networkId];
+    if (contributionsAndWithdrawalsData) {
+      const contributionsAndWithdrawals = new web3.eth.Contract(
+          ContributionsAndWithdrawals.abi, contributionsAndWithdrawalsData.address);
+      this.setState({contributionsAndWithdrawals: contributionsAndWithdrawals});
+    } else {
+      window.alert('ContributionsAndWithdrawals contract not deployed to detected network.');
+    }
+    const charityPoolData = CharityPool.networks[networkId];
+    if (charityPoolData) {
+      const charityPool = new web3.eth.Contract(
+          CharityPool.abi, charityPoolData.address);
+      this.setState({charityPool: charityPool});
+    } else {
+      window.alert('CharityPool contract not deployed to detected network.');
+    }
+    const reentrancyAttackData = ReentrancyAttack.networks[networkId];
+    if (reentrancyAttackData) {
+      const reentrancyAttack = new web3.eth.Contract(
+          ReentrancyAttack.abi, reentrancyAttackData.address);
+      this.setState({reentrancyAttack: reentrancyAttack});
+    } else {
+      window.alert('ReentrancyAttack contract not deployed to detected network.');
+    }
+
+    // Get contract balance for charity related contracts.
+    const contributionsAndWithdrawalsBalance = await this.state.contributionsAndWithdrawals.methods.getContractBalance().call();
+    const charityBalance = await this.state.charityPool.methods.getContractBalance().call();
+    const reentrancyAttackBalance = await this.state.reentrancyAttack.methods.getContractBalance().call();
+    this.setState({contributionsAndWithdrawalsBalance: contributionsAndWithdrawalsBalance});
+    this.setState({charityBalance: charityBalance});
+    this.setState({reentrancyAttackBalance: reentrancyAttackBalance});
+
 
     const tokenBalanceMapping = {'SELECT': 0};
     const symbolRateMapping = {'SELECT': 0};
@@ -292,7 +369,6 @@ class App extends Component {
     this.setState({loading: false});
   }
 
-
   async getOracleData() {
     
     // Store our web3 instance from above into single variable.
@@ -323,42 +399,85 @@ class App extends Component {
     }
   }
 
-  // A callback function that's triggered on a token exchange to load fresh BC data to update the page.
-  reloadBCData = () => {
-    this.loadBlockchainData();
-  }
+  // SMART CONTRACT FUNCTIONS
+
+  initiateAttackFunction = async () => {
+    this.setState({loading: true});
+
+    try {
+      await this.state.reentrancyAttack.methods
+        .initiateAttack()
+        .send({from: this.state.account})
+        .on('transactionHash', (hash) => {
+          this.setState({loading: false});
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  withdrawFromCharity = async () => {
+    this.setState({loading: true});
+
+    try {
+      await this.state.contributionsAndWithdrawals.methods
+        .withdrawFromCharity()
+        .send({from: this.state.account})
+        .on('transactionHash', (hash) => {
+          this.setState({loading: false});
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  contributeToCharity = async (contributionAmount) => {
+    this.setState({loading: true});
+    this.setState({contributeRejected: false});
+
+    try {
+      await this.state.contributionsAndWithdrawals.methods
+        .contributeToCharity()
+        .send({value: contributionAmount, from: this.state.account})
+        .on('transactionHash', (hash) => {
+          this.setState({ loading: false });
+        });
+    } catch (error) {
+      console.error(error);
+      this.setState({contributeRejected: true});
+    }
+  };
 
   executeFlashLoan = (tokenAmount, currentToken) => {
-  this.setState({ loading: true });
+    this.setState({loading: true});
 
-  this.state.flashLoan.methods
-    .executeFlashLoan(tokenAmount, currentToken)
-    .send({from: this.state.account})
-    .on('transactionHash', (hash) => {
-      this.setState({ loading: false });
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-};
-
+    this.state.flashLoan.methods
+      .executeFlashLoan(tokenAmount, currentToken)
+      .send({from: this.state.account})
+      .on('transactionHash', (hash) => {
+        this.setState({ loading: false });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   buyTokens = (etherAmount, currentToken) => {
-  this.setState({ loading: true });
+    this.setState({ loading: true });
 
-  this.state.ethSwap.methods
-    .buyTokens(currentToken)
-    .send({ value: etherAmount, from: this.state.account })
-    .on('transactionHash', (hash) => {
-      this.setState({ loading: false });
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-};
+    this.state.ethSwap.methods
+      .buyTokens(currentToken)
+      .send({value: etherAmount, from: this.state.account})
+      .on('transactionHash', (hash) => {
+        this.setState({ loading: false });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   sellTokens = async (tokenAmount, currentToken) => {
-    this.setState({ loading: true });
+    this.setState({loading: true});
 
     // sell tokens is async, but .send doesn't return a promise obejct,
     // ..so need to wrap code in a promsie object to make it asynchronous. 

