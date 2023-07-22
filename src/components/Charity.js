@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import donateNodes from '../Images/donateNodes.png';
 import angelImage from '../Images/angel.png';
 import devilImage from '../Images/devil.png';
+import devilBlackImage from '../Images/devilBlack.png';
+import ioImage from '../Images/ioImage.png';
 
 import './css/Charity.css';
 
@@ -43,13 +45,42 @@ class Charity extends Component {
 	}
 
 	callWithdrawal = async () => {
-		await this.props.withdrawFromCharity();
-		this.props.reloadBCData();
+		let charityBalance = window.web3.utils.fromWei(this.props.charityBalance, 'Ether');
+		if (charityBalance < 3) {
+			alert('There is not enough to WITHDRAW! Charity Balance < 3 ETH');
+		}
+		else {
+			await this.props.withdrawFromCharity();
+			this.props.reloadBCData();
+		}
 	}
 
 	callHack = async () => {
-		await this.props.initiateAttackFunction();
-		this.props.reloadBCData();
+		let charityBalance = window.web3.utils.fromWei(this.props.charityBalance, 'Ether');
+		if (charityBalance < 3) {
+			alert('There is not enough to HACK! Charity Balance <= 3 ETH');
+		}
+		else if (3 <= charityBalance && charityBalance < 6) {
+			await this.props.initiateAttackFunction();
+			this.props.reloadBCData();
+			alert('See smart contracts to see why you could not reenter for more.  Earning 3 is nothing!');
+		}
+		else {
+			await this.props.initiateAttackFunction();
+			this.props.reloadBCData();
+			alert('See smart contracts.  Your reentry was thwarted!');
+		}
+	}
+
+	callHack2 = async () => {
+		let charityBalance = window.web3.utils.fromWei(this.props.charityBalance, 'Ether');
+		if (charityBalance < 3) {
+			alert('There is not enough to HACK! Charity Balance < 3 ETH');
+		}
+		else {
+			await this.props.initiateAttackFunction2();
+			this.props.reloadBCData();
+		}
 	}
 
   render() {
@@ -63,6 +94,7 @@ class Charity extends Component {
           <div className="charity-content-container">       
 
 				{/* BACKGROUND CONTENT */}
+	         	
 	         	{/* TOP LEFT RECTANGLE */}
 	          <div className="rectangle top-left">
 	            <div className="angel-container">
@@ -70,15 +102,33 @@ class Charity extends Component {
   						</div>
 	          	<div className="withdrawal-text">Kindly withdrawal your fair share.</div>
 	            <button onClick={() => this.callWithdrawal('top-left')} className="withdrawal-button">Withdrawal</button>
+	          	<div className="io-container">
+    						<img src={ioImage} alt="ioImage" className="io-image" />
+  						</div>
 	          </div>
 
-	         	{/* BOTTOM LEFT RECTANGLE */}
-	          <div className="rectangle bottom-left">
+	          {/* CENTER LEFT RECTANGLE */}
+	          <div className="rectangle center-left">
 	          	<div className="devil-container">
     						<img src={devilImage} alt="Devil" className="devil-image" />
   						</div>
 	          	<div className="hack-text">Attempt to hack the charity pool!</div>
-	            <button onClick={() => this.callHack('bottom-left')} className="hack-button">HACK!</button>
+	            <button onClick={() => this.callHack('bottom-left')} className="hack-button">HACK!</button>     	
+	          	<div className="io-container">
+    						<img src={ioImage} alt="ioImage" className="io-image" />
+  						</div>
+	          </div>
+
+	         	{/* BOTTOM LEFT RECTANGLE */}
+	          <div className="rectangle bottom-left">
+	          	<div className="devilBlack-container">
+    						<img src={devilBlackImage} alt="Devil Black" className="devilBlack-image" />
+  						</div>
+	          	<div className="hack-text2">Successfully hack the charity pool!</div>
+	            <button onClick={() => this.callHack2('bottom-left')} className="hack-button2">HACK 2!</button>
+	          	<div className="io-container">
+    						<img src={ioImage} alt="ioImage" className="io-image" />
+  						</div>
 	          </div>
 
 
@@ -128,161 +178,3 @@ class Charity extends Component {
 	}
 }
 export default Charity;
-
-
-
-
-
-
-
-
-// import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-
-// class Charity extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       showPopup: true,
-//       contributionAmount: '',
-//       successMessage: false,
-//     };
-//   }
-
-//   handleContributionSubmit = () => {
-//     const { contributionAmount } = this.state;
-//     const parsedAmount = parseFloat(contributionAmount);
-
-//     if (!isNaN(parsedAmount) && parsedAmount > 0) {
-//       // Perform actions with the contribution amount
-//       // Example: Send the contribution to the server
-
-//       // Hide the pop-up window and show success message
-//       this.setState({ showPopup: false, successMessage: true });
-//     } else {
-//       // Show error message for invalid contribution amount
-//       alert('Please enter a valid contribution amount.');
-//     }
-//   };
-
-//   render() {
-//     const { showPopup, contributionAmount, successMessage } = this.state;
-
-//     return (
-//       <div>
-//         {showPopup && (
-//           <div className="popup">
-//             <h2>Make contribution in Ether</h2>
-//             <input
-//               type="text"
-//               value={contributionAmount}
-//               onChange={(e) => this.setState({ contributionAmount: e.target.value })}
-//             />
-//             <button onClick={this.handleContributionSubmit}>Submit</button>
-//           </div>
-//         )}
-
-//         {!showPopup && successMessage && (
-//           <div className="success-message">
-//             <p>Your contribution was submitted successfully!</p>
-//           </div>
-//         )}
-
-//         <div className="back-button-container">
-//           <Link to="/" className="back-button" onClick={this.props.backToMain}>
-//             Back to Main App
-//           </Link>
-//         </div>
-
-//         {/* Additional content */}
-//         {!showPopup && !successMessage && (
-//           <div className="content-container">
-//             {/* Input Box */}
-//             <div className="input-group">
-//               {this.state.currentToken === 'SELECT' ? (
-//                 <input
-//                   type="text"
-//                   className="form-control form-control-lg"
-//                   placeholder="Select a Token to Lend!"
-//                   disabled
-//                 />
-//               ) : (
-//                 <input
-//                   type="text"
-//                   ref={(input) => {
-//                     this.input = input;
-//                   }}
-//                   value={this.state.loanAmount}
-//                   onChange={(event) => {
-//                     this.setState({ loanAmount: event.target.value });
-//                   }}
-//                   style={{
-//                     backgroundColor: 'yellow',
-//                     color: 'black',
-//                     padding: '5px',
-//                     borderRadius: '5px',
-//                     width: '250px',
-//                   }}
-//                 />
-//               )}
-
-//               {/* Token Dropdown */}
-//               <div className="input-group-append">
-//                 <div className="btn-group">
-//                   <button
-//                     type="button"
-//                     className="btn btn-outline-secondary dropdown-toggle"
-//                     data-toggle="dropdown"
-//                     aria-haspopup="true"
-//                     aria-expanded="false"
-//                     style={{ backgroundColor: 'yellow' }}
-//                   >
-//                     <img
-//                       src={this.state.tokenInfo[this.state.currentToken].logo}
-//                       height="32"
-//                       alt="Token Logo"
-//                     />{' '}
-//                     &nbsp;
-//                     <span style={{ color: 'black' }}>{this.state.currentToken}</span>
-//                   </button>
-//                   <div className="dropdown-menu token-scrollable-menu">
-//                     {tokenList.slice(1).map((token) => (
-//                       <a
-//                         key={token}
-//                         className="dropdown-item"
-//                         href="#"
-//                         onClick={() => {
-//                           this.setState({ currentToken: token });
-//                         }}
-//                       >
-//                         <img
-//                           src={this.state.tokenInfo[token].logo}
-//                           height="40"
-//                           alt={`${token} Logo`}
-//                         />
-//                         &nbsp; {token}
-//                       </a>
-//                     ))}
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-
-//             {/* Submit Button */}
-//             <div style={{ marginTop: '10px' }}>
-//               <button
-//                 type="submit"
-//                 className="btn btn-primary btn-block btn-lg"
-//                 onClick={this.handleFlashLoan}
-//               >
-//                 SEND FLASH LOAN!
-//               </button>
-//             </div>
-//           </div>
-//         )}
-//       </div>
-//     );
-//   }
-// }
-
-// export default Charity;

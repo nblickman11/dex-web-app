@@ -48,41 +48,6 @@
 }
 
 
-{/* CONTENT CONTAINER FOR RECTANGLES */}
-
-.charity-content-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 0px; /* Adjust the margin value as needed */
-}
-
-.rectangle {
-  width: 400px;
-  height: 200px;
-  border: 5px solid black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 150px;
-}
-
-.top-left {
-  background-color: yellow;
-  position: absolute;
-  top: 10;
-  left: 10;
-}
-
-.bottom-left {
-  background-color: firebrick;
-  position: absolute;
-  bottom: 0;
-  left: 10;
-}
-
-
-
 {/* IMAGE ON THE RIGHT */}
 
 .image-container {
@@ -104,21 +69,63 @@
 
 .text-overlay {
   position: absolute;
+  font-size: 15px;
   top: 20%;
   left: 50%;
-/*  transform: translate(-50%, -50%);*/
-  background-color: rgba(255, 255, 255, 0.8);
   padding: 10px;
-  text-align: center;
+  text-align: right;
+  right: 50px; 
 }
 
+
+
+{/* CONTENT CONTAINER FOR RECTANGLES */}
+
+.charity-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0px; /* Adjust the margin value as needed */
+}
+
+.rectangle {
+  width: 400px;
+  height: 100px;
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 150px;
+}
+
+
+.top-left {
+  background-color: yellow;
+  position: absolute;
+  top: 35px;
+  left: 10px;
+}
+
+.center-left {
+  background-color: firebrick;
+  position: absolute;
+  top: 205px;
+  left: 10px;
+}
+
+.bottom-left {
+  background-color: black;
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+}
 
 
 {/* RECTANGLE TOP LEFT */}
 .withdrawal-text {
   color: black;
-  font-size: 28px; /* Adjust the font-size value as needed */
-  margin-bottom: 100px; /* Adjust the margin-bottom value as needed */
+  font-size: 20px; /* Adjust the font-size value as needed */
+  margin-bottom: 50px; /* Adjust the margin-bottom value as needed */
   font-weight: bold;
   text-align: center; /* Add this line to center the text */
 }
@@ -126,29 +133,36 @@
 .withdrawal-button {
   background-color: gold;
   color: black;
-  font-size: 20px; /* Adjust the font-size value as needed */
+  font-size: 15px; /* Adjust the font-size value as needed */
   padding: 10px 20px; /* Adjust the padding values as needed */
   font-weight: bold;
   position: absolute; 
-  margin-top: 100px; /* Adjust the margin-bottom value as needed */
+  margin-top: 45px; /* Adjust the margin-bottom value as needed */
+}
+
+/* Add the hover effect for .withdrawal-button */
+.withdrawal-button:hover {
+  background-color: orange; /* Change the color to your desired hover color */
+  cursor: pointer; /* Optionally, change the cursor to a pointer on hover */
 }
 
 .angel-container {
   position: absolute; 
-  margin-right: 550px; /* Adjust the margin-right value as needed */
+  margin-right: 540px; /* Adjust the margin-right value as needed */
+  margin-top: -10px; 
 }
+
 .angel-image {
-  width: 150px; /* Adjust the width value as needed */
-  height: 150px; /* Adjust the height value as needed */
+  width: 115px; /* Adjust the width value as needed */
+  height: 115px; /* Adjust the height value as needed */
 }
 
 
-
-{/* RECTANGLE BOTTOM LEFT */}
+{/* RECTANGLE CENTER LEFT */}
 .hack-text {
   color: black;
-  font-size: 28px; /* Adjust the font-size value as needed */
-  margin-bottom: 100px; /* Adjust the margin-bottom value as needed */
+  font-size: 20px; /* Adjust the font-size value as needed */
+  margin-bottom: 60px; /* Adjust the margin-bottom value as needed */
   font-weight: bold;
   text-align: center; /* Add this line to center the text */
 }
@@ -156,20 +170,75 @@
 .hack-button {
   background-color: red;
   color: black;
-  font-size: 20px; /* Adjust the font-size value as needed */
+  font-size: 18px; /* Adjust the font-size value as needed */
   padding: 10px 20px; /* Adjust the padding values as needed */
   font-weight: bold;
   position: absolute; 
-  margin-top: 100px; /* Adjust the margin-bottom value as needed */
+  margin-top: 40px; /* Adjust the margin-bottom value as needed */
+}
+
+.hack-button:hover {
+  background-color: orangered; /* Change the color to your desired hover color */
+  cursor: pointer; /* Optionally, change the cursor to a pointer on hover */
 }
 
 .devil-container {
   position: absolute; 
-  margin-right: 550px; /* Adjust the margin-right value as needed */
+  margin-right: 525px; /* Adjust the margin-right value as needed */
 }
 .devil-image {
-  width: 150px; /* Adjust the width value as needed */
-  height: 150px; /* Adjust the height value as needed */
+  width: 125px; /* Adjust the width value as needed */
+  height: 125px; /* Adjust the height value as needed */
+}
+
+
+
+{/* RECTANGLE BOTTOM LEFT */}
+
+.hack-text2 {
+  color: indianred;
+  font-size: 20px; /* Adjust the font-size value as needed */
+  margin-bottom: 60px; /* Adjust the margin-bottom value as needed */
+  font-weight: bold;
+  text-align: center; /* Add this line to center the text */
+}
+
+.hack-button2 {
+  background-color: indianred;
+  color: black;
+  font-size: 20px; /* Adjust the font-size value as needed */
+  padding: 10px 20px; /* Adjust the padding values as needed */
+  font-weight: bold;
+  position: absolute; 
+  margin-top: 40px; /* Adjust the margin-bottom value as needed */
+}
+
+.hack-button2:hover {
+  background-color: black; /* Change the color to your desired hover color */
+  cursor: pointer; /* Optionally, change the cursor to a pointer on hover */
+}
+
+.devilBlack-container {
+  position: absolute; 
+  margin-right: 550px; /* Adjust the margin-right value as needed */
+}
+.devilBlack-image {
+  width: 120px; /* Adjust the width value as needed */
+  height: 120px; /* Adjust the height value as needed */
+}
+
+
+.io-container {
+  position: absolute; 
+  margin-right: -635px; /* Adjust the margin-right value as needed */
+  margin-top: 0px; 
+}
+
+
+{/* IO IMAGE */}
+.io-image {
+  width: 235px; /* Adjust the width value as needed */
+  height: 115px; /* Adjust the height value as needed */
 }
 
 

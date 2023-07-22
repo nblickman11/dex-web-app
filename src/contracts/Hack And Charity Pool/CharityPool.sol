@@ -7,12 +7,13 @@ contract CharityPool {
     uint8 public WITHDRAW_AMOUNT = 3;
     uint256 public WEI_SCALE = 10**18;
 
+    // Mapping to keep track of whether a user is currently withdrawing or not.
+    mapping(address => bool) public locked;
 
     event Values(uint256);
 
-//     mapping(address => uint) public lastWithdrawalTime;
-
-//     uint public withdrawalCooldown = 1 weeks; 
+    mapping(address => uint) public lastWithdrawalTime;
+    uint public withdrawalCooldown = 10 seconds; 
 
     /*
         CharityPool will automatically receive X ETH. Any user can 
@@ -22,54 +23,59 @@ contract CharityPool {
     function contribute() public payable 
     {
         /* 
-          Code below is only needed for readability.  As the ETH value
-          is automatically deposited to the contract balance without it.
-          
-          However, if msg.value was, say 2 ETH (when 5 ETH was sent with 
+          If msg.value was, say 2 ETH (when 5 ETH was sent with 
           the transaction) then only 2 ETH gets deposited the contract's
-          balance.  The other 3 ETH remain with the user. 
+          balance.  The other 3 ETH remain with the user.
+          // (bool success, ) = address(this).call.value(msg.value=2)("");
         */
-
-
-        // CODE BELOW IS ACTUALLY FAILING: transfer could be sucessfull, but
-        // this low level call is not, so lets not use it.
-
-        //emit Values(msg.value);
-        // (bool success, ) = address(this).call.value(msg.value)("");
-        // //require(success, "Failed to transfer funds");
     }
 
-
-
+    // Allow withdraw's if the user's hasn't last withdrawn within the cooldown period.
     function withdraw() public 
     {    
         require(WITHDRAW_AMOUNT * WEI_SCALE <= address(this).balance, "Insufficient balance");
+
+        emit Values(WITHDRAW_AMOUNT);
+
+        (bool success, ) = msg.sender.call.value(WITHDRAW_AMOUNT * WEI_SCALE)("");
+        require(success, "Failed to transfer funds");
+
+        // NOTE: transaction t1, then t2, could have the same block.timestamp
+        // if mined in the same block.  
+        // default value for Solidity int is 0 (if msg.sender doesn't exist)
+        require(block.timestamp >= lastWithdrawalTime[msg.sender] + withdrawalCooldown, "Cooldown period not over yet");
+        lastWithdrawalTime[msg.sender] = block.timestamp;
+    }
+
+    // Function's Lock mechanism defends against a reentrancy attack.
+    function failedWithdrawAttack() public 
+    {    
+        require(WITHDRAW_AMOUNT * WEI_SCALE <= address(this).balance, "Insufficient balance");
         
+        // If msg.sender is new, they won't exist in the mapping.  Solidity mapping's
+        // .. in this case will return the default value of the datatype. Bool's
+        // .. default value is False.  So it's not locked!
+        require(!locked[msg.sender], "Withdrawal in progress");
 
- //        require(!locked[msg.sender], "Withdrawal in progress");
+        // Set the lock to true to prevent reentrancy attacks
+        locked[msg.sender] = true;
 
+        // Line below hashes funcion sig = "fallback1()" into bytes for EVM to read
+        bytes memory payload = abi.encodeWithSignature("fallback1()");
+        (bool success, ) = msg.sender.call.value(WITHDRAW_AMOUNT * WEI_SCALE)(payload);
+        // msg.sender.transfer(WITHDRAW_AMOUNT * WEI_SCALE);  
+        require(success, "Failed to transfer funds");
 
+        locked[msg.sender] = false;
+    }
 
-        // call is a low-level built in Solidity function that transfer's 
-        // ..ETH from contract account to msg.sender
-        //(bool success, ) = msg.sender.call.value(WITHDRAW_AMOUNT)("");
+    function successfulWithdrawAttack() public 
+    {    
+        require(WITHDRAW_AMOUNT * WEI_SCALE <= address(this).balance, "Insufficient balance");
 
-        
-
-        msg.sender.transfer(WITHDRAW_AMOUNT * WEI_SCALE);  
-
-
-        //msg.sender.transfer(WITHDRAW_AMOUNT);
-
-        //require(success, "Failed to transfer funds");
-
-
- //        locked[msg.sender] = false; // Release the lock
-
-        /// MAKE PART BELOW SEP FUNC. test withdrawal time
-        //         require(block.timestamp >= lastWithdrawalTime[msg.sender] + withdrawalCooldown, "Cooldown period not over yet");
-//         lastWithdrawalTime[msg.sender] = block.timestamp;
-
+        bytes memory payload = abi.encodeWithSignature("fallback2()");
+        (bool success, ) = msg.sender.call.value(WITHDRAW_AMOUNT * WEI_SCALE)(payload);
+        require(success, "Failed to transfer funds");
     }
 
 

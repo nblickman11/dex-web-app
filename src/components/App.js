@@ -152,6 +152,7 @@ class App extends Component {
                           contributeToCharity={this.contributeToCharity}
                           withdrawFromCharity={this.withdrawFromCharity}
                           initiateAttackFunction={this.initiateAttackFunction}
+                          initiateAttackFunction2={this.initiateAttackFunction2}
                           contributeRejected={this.state.contributeRejected}
                         />}
                   />
@@ -401,6 +402,21 @@ class App extends Component {
 
   // SMART CONTRACT FUNCTIONS
 
+  initiateAttackFunction2 = async () => {
+    this.setState({loading: true});
+
+    try {
+      await this.state.reentrancyAttack.methods
+        .initiateAttack2()
+        .send({from: this.state.account})
+        .on('transactionHash', (hash) => {
+          this.setState({loading: false});
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   initiateAttackFunction = async () => {
     this.setState({loading: true});
 
@@ -427,6 +443,8 @@ class App extends Component {
           this.setState({loading: false});
         });
     } catch (error) {
+      alert("You can't withdraw again until a new block is mined\n 10 " +
+       "seconds after the block of your initial withdrawal.")
       console.error(error);
     }
   };
