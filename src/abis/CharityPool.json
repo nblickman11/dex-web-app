@@ -612,7 +612,7 @@
                                 "name": "this",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 417,
+                                "referencedDeclaration": 435,
                                 "src": "1192:4:0",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_CharityPool_$208",
@@ -708,10 +708,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        406,
-                        407
+                        424,
+                        425
                       ],
-                      "referencedDeclaration": 407,
+                      "referencedDeclaration": 425,
                       "src": "1145:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -918,7 +918,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 403,
+                              "referencedDeclaration": 421,
                               "src": "1299:3:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -1049,10 +1049,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        406,
-                        407
+                        424,
+                        425
                       ],
-                      "referencedDeclaration": 407,
+                      "referencedDeclaration": 425,
                       "src": "1363:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1100,7 +1100,7 @@
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 393,
+                            "referencedDeclaration": 411,
                             "src": "1622:5:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_block",
@@ -1158,7 +1158,7 @@
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 403,
+                                "referencedDeclaration": 421,
                                 "src": "1660:3:0",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
@@ -1251,10 +1251,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        406,
-                        407
+                        424,
+                        425
                       ],
-                      "referencedDeclaration": 407,
+                      "referencedDeclaration": 425,
                       "src": "1614:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1311,7 +1311,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 403,
+                          "referencedDeclaration": 421,
                           "src": "1754:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1353,7 +1353,7 @@
                         "name": "block",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 393,
+                        "referencedDeclaration": 411,
                         "src": "1768:5:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_block",
@@ -1490,7 +1490,7 @@
                                 "name": "this",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 417,
+                                "referencedDeclaration": 435,
                                 "src": "1971:4:0",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_CharityPool_$208",
@@ -1586,10 +1586,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        406,
-                        407
+                        424,
+                        425
                       ],
-                      "referencedDeclaration": 407,
+                      "referencedDeclaration": 425,
                       "src": "1924:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1653,7 +1653,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 403,
+                              "referencedDeclaration": 421,
                               "src": "2270:3:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -1724,10 +1724,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        406,
-                        407
+                        424,
+                        425
                       ],
-                      "referencedDeclaration": 407,
+                      "referencedDeclaration": 425,
                       "src": "2254:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1784,7 +1784,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 403,
+                          "referencedDeclaration": 421,
                           "src": "2388:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1914,7 +1914,7 @@
                         "name": "abi",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 390,
+                        "referencedDeclaration": 408,
                         "src": "2524:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_abi",
@@ -2075,7 +2075,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 403,
+                              "referencedDeclaration": 421,
                               "src": "2591:3:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -2206,10 +2206,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        406,
-                        407
+                        424,
+                        425
                       ],
-                      "referencedDeclaration": 407,
+                      "referencedDeclaration": 425,
                       "src": "2723:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2266,7 +2266,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 403,
+                          "referencedDeclaration": 421,
                           "src": "2785:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2434,7 +2434,7 @@
                                 "name": "this",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 417,
+                                "referencedDeclaration": 435,
                                 "src": "2926:4:0",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_CharityPool_$208",
@@ -2530,10 +2530,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        406,
-                        407
+                        424,
+                        425
                       ],
-                      "referencedDeclaration": 407,
+                      "referencedDeclaration": 425,
                       "src": "2879:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2626,7 +2626,7 @@
                         "name": "abi",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 390,
+                        "referencedDeclaration": 408,
                         "src": "2998:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_abi",
@@ -2787,7 +2787,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 403,
+                              "referencedDeclaration": 421,
                               "src": "3065:3:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -2918,10 +2918,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        406,
-                        407
+                        424,
+                        425
                       ],
-                      "referencedDeclaration": 407,
+                      "referencedDeclaration": 425,
                       "src": "3134:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2991,7 +2991,7 @@
                           "name": "this",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 417,
+                          "referencedDeclaration": 435,
                           "src": "3277:4:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_contract$_CharityPool_$208",
@@ -3609,10 +3609,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                406,
-                                407
+                                424,
+                                425
                               ],
-                              "referencedDeclaration": 407,
+                              "referencedDeclaration": 425,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -3735,7 +3735,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 417,
+                                          "referencedDeclaration": 435,
                                           "type": "contract CharityPool",
                                           "value": "this"
                                         },
@@ -3961,7 +3961,7 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 403,
+                                              "referencedDeclaration": 421,
                                               "type": "msg",
                                               "value": "msg"
                                             },
@@ -4094,10 +4094,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                406,
-                                407
+                                424,
+                                425
                               ],
-                              "referencedDeclaration": 407,
+                              "referencedDeclaration": 425,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -4176,10 +4176,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                406,
-                                407
+                                424,
+                                425
                               ],
-                              "referencedDeclaration": 407,
+                              "referencedDeclaration": 425,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -4220,7 +4220,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 393,
+                                      "referencedDeclaration": 411,
                                       "type": "block",
                                       "value": "block"
                                     },
@@ -4290,7 +4290,7 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 403,
+                                              "referencedDeclaration": 421,
                                               "type": "msg",
                                               "value": "msg"
                                             },
@@ -4414,7 +4414,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 403,
+                                      "referencedDeclaration": 421,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -4450,7 +4450,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 393,
+                                  "referencedDeclaration": 411,
                                   "type": "block",
                                   "value": "block"
                                 },
@@ -4553,10 +4553,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                406,
-                                407
+                                424,
+                                425
                               ],
-                              "referencedDeclaration": 407,
+                              "referencedDeclaration": 425,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -4679,7 +4679,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 417,
+                                          "referencedDeclaration": 435,
                                           "type": "contract CharityPool",
                                           "value": "this"
                                         },
@@ -4759,10 +4759,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                406,
-                                407
+                                424,
+                                425
                               ],
-                              "referencedDeclaration": 407,
+                              "referencedDeclaration": 425,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -4824,7 +4824,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 403,
+                                          "referencedDeclaration": 421,
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -4929,7 +4929,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 403,
+                                      "referencedDeclaration": 421,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -5045,7 +5045,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 390,
+                                  "referencedDeclaration": 408,
                                   "type": "abi",
                                   "value": "abi"
                                 },
@@ -5201,7 +5201,7 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 403,
+                                              "referencedDeclaration": 421,
                                               "type": "msg",
                                               "value": "msg"
                                             },
@@ -5331,10 +5331,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                406,
-                                407
+                                424,
+                                425
                               ],
-                              "referencedDeclaration": 407,
+                              "referencedDeclaration": 425,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -5438,7 +5438,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 403,
+                                      "referencedDeclaration": 421,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -5563,10 +5563,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                406,
-                                407
+                                424,
+                                425
                               ],
-                              "referencedDeclaration": 407,
+                              "referencedDeclaration": 425,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -5689,7 +5689,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 417,
+                                          "referencedDeclaration": 435,
                                           "type": "contract CharityPool",
                                           "value": "this"
                                         },
@@ -5810,7 +5810,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 390,
+                                  "referencedDeclaration": 408,
                                   "type": "abi",
                                   "value": "abi"
                                 },
@@ -5966,7 +5966,7 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 403,
+                                              "referencedDeclaration": 421,
                                               "type": "msg",
                                               "value": "msg"
                                             },
@@ -6096,10 +6096,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                406,
-                                407
+                                424,
+                                425
                               ],
-                              "referencedDeclaration": 407,
+                              "referencedDeclaration": 425,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -6277,7 +6277,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 417,
+                                  "referencedDeclaration": 435,
                                   "type": "contract CharityPool",
                                   "value": "this"
                                 },
@@ -6382,12 +6382,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x7dE9E14BB816F19d5AB9DB901078b43DF65e3CDc",
-      "transactionHash": "0x67251db95d7be85cada5a287963141342a14610195dc1069c70f968777346788"
+      "address": "0x512dF476D3D481E2C65654B281E59b7CE1Efba6e",
+      "transactionHash": "0x64dd7cf15f9543eb4b186304098705d04f67c4bb08f150e58d230706c5e861ad"
     }
   },
   "schemaVersion": "3.4.14",
-  "updatedAt": "2023-07-22T19:24:49.228Z",
+  "updatedAt": "2023-07-24T18:30:53.495Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

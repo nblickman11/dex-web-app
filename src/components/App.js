@@ -142,6 +142,7 @@ class App extends Component {
                     path="/charity" 
                       element={
                         <Charity
+                          ethBalance={this.state.ethBalance}
                           backToMain={this.backToMain}
                           tokenBalanceMapping={this.state.tokenBalanceMapping}
                           reloadBCData={this.reloadBCData} 
@@ -443,7 +444,8 @@ class App extends Component {
           this.setState({loading: false});
         });
     } catch (error) {
-      alert("You can't withdraw again until a new block is mined\n 10 " +
+      alert("Transaction Rejected.\nREMINDER: you can't withdraw a " + 
+        "second time until a new block is mined 10 " +
        "seconds after the block of your initial withdrawal.")
       console.error(error);
     }

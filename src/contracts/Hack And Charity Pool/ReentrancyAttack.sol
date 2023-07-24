@@ -6,6 +6,8 @@ import './CharityPool.sol';
 
 contract ReentrancyAttack {
 
+    uint8 public WITHDRAW_TO_USER = 2;
+    uint256 public WEI_SCALE = 10**18;
     CharityPool public charityPool;
 
     constructor(address _charityPool) public {
@@ -56,6 +58,7 @@ contract ReentrancyAttack {
 
     function initiateAttack2() public {
         charityPool.successfulWithdrawAttack();
+        msg.sender.transfer(address(this).balance);
     }
 
 }

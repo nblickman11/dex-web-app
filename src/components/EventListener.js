@@ -21,7 +21,6 @@ if (window.ethereum) {
   });
 
 
-
   // Retrieve the contract address from the artifact file
   const contractAddress = contractArtifact.networks['5777'].address;
 

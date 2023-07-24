@@ -63,12 +63,12 @@ class Charity extends Component {
 		else if (3 <= charityBalance && charityBalance < 6) {
 			await this.props.initiateAttackFunction();
 			this.props.reloadBCData();
-			alert('See smart contracts to see why you could not reenter for more.  Earning 3 is nothing!');
+			alert('See smart contracts which show why you could not reenter for more.  Earning 3 ETH is nothing!');
 		}
 		else {
 			await this.props.initiateAttackFunction();
 			this.props.reloadBCData();
-			alert('See smart contracts.  Your reentry was thwarted!');
+			alert('Rejected! See smart contracts.  Your reentry was thwarted!');
 		}
 	}
 
@@ -101,7 +101,7 @@ class Charity extends Component {
     						<img src={angelImage} alt="Angel" className="angel-image" />
   						</div>
 	          	<div className="withdrawal-text">Kindly withdrawal your fair share.</div>
-	            <button onClick={() => this.callWithdrawal('top-left')} className="withdrawal-button">Withdrawal</button>
+	            <button onClick={() => this.callWithdrawal('top-left')} className="withdrawal-button">Withdraw</button>
 	          	<div className="io-container">
     						<img src={ioImage} alt="ioImage" className="io-image" />
   						</div>
@@ -137,10 +137,29 @@ class Charity extends Component {
 	          	<img src={donateNodes} alt="donateNodes" />
 	       
 	         		<div className="text-overlay">
-								  <p>You Contributed ETH: {this.state.contributionAmount}</p>
-								  <p>Charity Balance: {this.props.charityBalance}</p>
-								  <p>Contract Balance of CandW: {this.props.cANDwBalance}</p>
-								  <p>Contract Balance of Hacker Contract: {this.props.reentrancyAttackBalance}</p>
+								  
+								  <p className="eth-bal">Your ETH Balance: {parseFloat(window.web3.utils.fromWei(this.props.ethBalance, 'Ether')).toFixed(2)}</p>
+
+								  <p className="heading-amount">Contributed ETH:</p>
+								  <div className="mini-box">
+										<p className="content-amount">{parseFloat(window.web3.utils.fromWei(this.state.contributionAmount, 'Ether')).toFixed(2)}</p>
+          				</div>
+
+          				<p className="heading-amount">Charity Contract Balance:</p>
+								  <div className="mini-box">
+										<p className="content-amount">{parseFloat(window.web3.utils.fromWei(this.props.charityBalance, 'Ether')).toFixed(2)}</p>
+          				</div>
+
+          				<p className="heading-amount">Contributions Contract Balance:</p>
+								  <div className="mini-box">
+										<p className="content-amount">{parseFloat(window.web3.utils.fromWei(this.props.cANDwBalance, 'Ether')).toFixed(2)}</p>
+          				</div>
+
+          				<p className="heading-amount">Hacker Contract Balance:</p>
+								  <div className="mini-box">
+										<p className="content-amount">{parseFloat(window.web3.utils.fromWei(this.props.reentrancyAttackBalance, 'Ether')).toFixed(2)}</p>
+          				</div>
+
 
 							</div>
 	          </div>
