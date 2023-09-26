@@ -3,7 +3,7 @@
 -Buy and sell Ethereum for 13 different ERC-20 tokens ("Nelson tokens") via a user-friendly interface.  
 -Created oracle contracts to simulate a real oracle.  Pulling in, currently fake, weather data.  
 -Includes functionality that allows users to submit a flash loan that earns interest.  
--Includes Solidity smart contracts for tokens, exchange, oracle, and a charity pool on the backend. 
+-Includes Solidity smart contracts for tokens, exchange, oracle, and a charity pool on the backend.  
 -Launched to Sepolia Testnet.
 
 # STEPS TO LAUNCH APP
