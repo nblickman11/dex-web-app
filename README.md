@@ -1,5 +1,5 @@
-https://vimeo.com/manage/videos/885422995![image](https://github.com/nblickman11/dex-web-app/assets/62907195/ee3cd8ed-28a1-4826-ae31-79716c0a5f9f)
-
+# Video Presentation
+https://vimeo.com/manage/videos/885422995
 
 # dex-web-app
 -React-based DApp that interacts with MetaMask wallets.  
